@@ -11,7 +11,7 @@ export default function ServicesListingPage() {
     <div className="min-h-screen bg-[#0A1A3F]">
       <Navbar />
 
-      <section className="relative pt-24 pb-16 overflow-hidden" data-testid="section-services-hero">
+      <section className="relative pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden" data-testid="section-services-hero">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url(/images/svc-screen.jpg)" }} />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A1A3F]/70 via-[#0A1A3F]/50 to-[#0A1A3F]" />
@@ -19,7 +19,7 @@ export default function ServicesListingPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
               Our <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">Services</span>
             </h1>
             <p className="text-[#EAF7FF]/70 text-lg max-w-2xl mx-auto">
@@ -29,9 +29,9 @@ export default function ServicesListingPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#071533]" data-testid="section-services-grid">
+      <section className="py-10 sm:py-16 bg-[#071533]" data-testid="section-services-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {serviceDetails.map((service, index) => (
               <Link key={service.slug} href={`/services/${service.slug}`}>
                 <motion.div

@@ -7,7 +7,7 @@ export default function CitiesSection() {
   const popularAreas = mumbaiAreas.filter((a) => a.popular);
 
   return (
-    <section id="areas" className="relative py-20 bg-[#0A1A3F]" data-testid="section-areas">
+    <section id="areas" className="relative py-12 sm:py-20 bg-[#0A1A3F]" data-testid="section-areas">
       <div className="absolute inset-0 bg-neon-glow opacity-15" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

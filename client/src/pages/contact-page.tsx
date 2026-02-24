@@ -44,14 +44,14 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[#0A1A3F]">
       <Navbar />
 
-      <section className="relative pt-24 pb-16 overflow-hidden" data-testid="section-contact-hero">
+      <section className="relative pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden" data-testid="section-contact-hero">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#071533] to-[#0A1A3F]" />
           <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-[#00C2FF]/8 rounded-full blur-[120px]" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
               Contact <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">Us</span>
             </h1>
             <p className="text-[#EAF7FF]/70 text-lg max-w-2xl mx-auto">
@@ -61,9 +61,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#071533]" data-testid="section-contact-methods">
+      <section className="py-10 sm:py-16 bg-[#071533]" data-testid="section-contact-methods">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             {contactMethods.map((m, i) => (
               <motion.a
                 key={m.title}

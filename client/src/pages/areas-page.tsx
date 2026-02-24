@@ -11,7 +11,7 @@ export default function AreasPage() {
     <div className="min-h-screen bg-[#0A1A3F]">
       <Navbar />
 
-      <section className="relative pt-24 pb-16 overflow-hidden" data-testid="section-areas-hero">
+      <section className="relative pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden" data-testid="section-areas-hero">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url(/images/city-mumbai.jpg)" }} />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A1A3F]/70 via-[#0A1A3F]/50 to-[#0A1A3F]" />
@@ -23,7 +23,7 @@ export default function AreasPage() {
               <MapPin className="w-4 h-4 text-[#00FFE0]" />
               <span className="text-[#00C2FF] text-sm font-medium">{mumbaiAreas.length}+ Service Locations</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
               Areas We <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">Serve</span>
             </h1>
             <p className="text-[#EAF7FF]/70 text-lg max-w-2xl mx-auto">

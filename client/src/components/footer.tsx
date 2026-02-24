@@ -4,7 +4,7 @@ import { Link } from "wouter";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#060f28] border-t border-[#00C2FF]/10 pt-16 pb-8" data-testid="footer">
+    <footer className="bg-[#060f28] border-t border-[#00C2FF]/10 pt-10 sm:pt-16 pb-6 sm:pb-8" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>

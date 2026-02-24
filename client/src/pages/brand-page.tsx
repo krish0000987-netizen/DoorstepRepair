@@ -40,7 +40,7 @@ export default function BrandPage() {
     <div className="min-h-screen bg-[#0A1A3F]">
       <Navbar />
 
-      <section className="relative pt-24 pb-16 overflow-hidden" data-testid="section-brand-hero">
+      <section className="relative pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden" data-testid="section-brand-hero">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-cover bg-center opacity-25" style={{ backgroundImage: `url(${brand.heroImage})` }} />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A1A3F]/70 via-[#0A1A3F]/50 to-[#0A1A3F]" />
@@ -58,23 +58,23 @@ export default function BrandPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-3">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-6">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2.5 sm:p-3 shrink-0">
                 <img src={brand.logo} alt={`${brand.name} logo`} className="w-full h-full object-contain" />
               </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00C2FF]/30 bg-[#00C2FF]/10">
+              <div className="self-start inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#00C2FF]/30 bg-[#00C2FF]/10">
                 <span className="w-2 h-2 rounded-full bg-[#00FFE0] animate-pulse" />
-                <span className="text-[#00C2FF] text-sm font-medium">Authorized Repair Center</span>
+                <span className="text-[#00C2FF] text-xs sm:text-sm font-medium">Authorized Repair Center</span>
               </div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-3">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-3">
               {brand.name} <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">Repair</span>
             </h1>
-            <p className="text-[#EAF7FF]/70 text-lg sm:text-xl max-w-2xl mb-4">{brand.tagline}</p>
-            <p className="text-[#EAF7FF]/50 text-base max-w-3xl mb-8">{brand.description}</p>
+            <p className="text-[#EAF7FF]/70 text-base sm:text-xl max-w-2xl mb-3 sm:mb-4">{brand.tagline}</p>
+            <p className="text-[#EAF7FF]/50 text-sm sm:text-base max-w-3xl mb-6 sm:mb-8">{brand.description}</p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <a href={`https://wa.me/918169701980?text=Hi%2C%20I%20need%20${encodeURIComponent(brand.name)}%20repair`} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] text-[#0A1A3F] font-bold shadow-[0_0_25px_rgba(0,194,255,0.3)] no-default-hover-elevate no-default-active-elevate" data-testid="button-brand-whatsapp">
                   <MessageCircle className="w-5 h-5 mr-2" /> Book via WhatsApp
@@ -90,7 +90,7 @@ export default function BrandPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#071533]" data-testid="section-brand-models">
+      <section className="py-10 sm:py-16 bg-[#071533]" data-testid="section-brand-models">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
             <div className="flex items-center gap-3 mb-4">
@@ -100,7 +100,7 @@ export default function BrandPage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white">Models We Repair</h2>
           </motion.div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             {brand.popularModels.map((model, i) => (
               <motion.div
                 key={model}
@@ -108,30 +108,30 @@ export default function BrandPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="px-4 py-2.5 rounded-lg border border-[#00C2FF]/20 bg-[#0d2255]/50 text-white text-sm font-medium"
+                className="px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg border border-[#00C2FF]/20 bg-[#0d2255]/50 text-white text-xs sm:text-sm font-medium"
                 data-testid={`badge-model-${i}`}
               >
                 {model}
               </motion.div>
             ))}
-            <div className="px-4 py-2.5 rounded-lg border border-[#00FFE0]/20 bg-[#00FFE0]/5 text-[#00FFE0] text-sm font-medium">
+            <div className="px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg border border-[#00FFE0]/20 bg-[#00FFE0]/5 text-[#00FFE0] text-xs sm:text-sm font-medium">
               + All Other Models
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-[#0A1A3F]" data-testid="section-brand-problems">
+      <section className="py-10 sm:py-16 bg-[#0A1A3F]" data-testid="section-brand-problems">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 sm:mb-10">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8 bg-[#00C2FF]" />
               <span className="text-[#00C2FF] text-sm font-semibold tracking-widest uppercase">Repair Services</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">{brand.name} Repair Services</h2>
+            <h2 className="text-xl sm:text-3xl font-bold text-white">{brand.name} Repair Services</h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {brand.problems.map((problem, index) => (
               <motion.div
                 key={problem.name}

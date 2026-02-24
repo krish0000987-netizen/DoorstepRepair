@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function CTASection() {
   return (
-    <section className="relative py-20 bg-[#0A1A3F] overflow-hidden" data-testid="section-cta">
+    <section className="relative py-12 sm:py-20 bg-[#0A1A3F] overflow-hidden" data-testid="section-cta">
       <div className="absolute inset-0">
         <img
           src="/images/cta-bg.jpg"
@@ -21,16 +21,16 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Need Help? <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">Call Now!</span>
           </h2>
 
           <a
             href="tel:8169701980"
-            className="inline-flex items-center gap-3 text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 hover:text-[#00C2FF] transition-colors"
+            className="inline-flex items-center gap-2 sm:gap-3 text-2xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 hover:text-[#00C2FF] transition-colors"
             data-testid="link-cta-phone"
           >
-            <Phone className="w-10 h-10 text-[#00C2FF]" />
+            <Phone className="w-6 h-6 sm:w-10 sm:h-10 text-[#00C2FF]" />
             8169-701980
           </a>
 

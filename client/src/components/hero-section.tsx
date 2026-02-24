@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20" data-testid="section-hero">
+    <section id="home" className="relative min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20" data-testid="section-hero">
       <div className="absolute inset-0 bg-[#0A1A3F]">
         <div className="absolute inset-0 bg-[url('/images/hero-bg.png')] bg-cover bg-center opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1A3F]/60 via-transparent to-[#0A1A3F]" />
@@ -30,19 +30,19 @@ export default function HeroSection() {
               <span className="text-[#00C2FF] text-sm font-medium">Fast & Reliable Service</span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4">
               <span className="text-white">DEVICES</span>
               <br />
               <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">DOCTOR</span>
             </h1>
 
-            <p className="text-[#EAF7FF]/80 text-lg sm:text-xl font-medium mb-2">
+            <p className="text-[#EAF7FF]/80 text-base sm:text-xl font-medium mb-2">
               Your Device Health Experts
             </p>
-            <p className="text-[#00C2FF] text-xl sm:text-2xl font-bold mb-2">
+            <p className="text-[#00C2FF] text-lg sm:text-2xl font-bold mb-2">
               30 Minutes Doorstep Repair Service
             </p>
-            <p className="text-[#EAF7FF]/60 text-base sm:text-lg mb-8 max-w-lg mx-auto lg:mx-0">
+            <p className="text-[#EAF7FF]/60 text-sm sm:text-lg mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
               We Repair Onsite Within 30 Minutes! All Mobile Brands, Laptops, Tablets & Smart Watches.
             </p>
 
@@ -72,7 +72,7 @@ export default function HeroSection() {
               </a>
             </div>
 
-            <div className="flex items-center gap-6 mt-8 justify-center lg:justify-start">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-6 sm:mt-8 justify-center lg:justify-start">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   {[1, 2].map((i) => (
@@ -80,11 +80,11 @@ export default function HeroSection() {
                       key={i}
                       src={`/images/technician-${i}.png`}
                       alt="Technician"
-                      className="w-8 h-8 rounded-full border-2 border-[#0A1A3F] object-cover"
+                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#0A1A3F] object-cover"
                     />
                   ))}
                 </div>
-                <span className="text-[#EAF7FF]/70 text-sm">50+ Certified Technicians</span>
+                <span className="text-[#EAF7FF]/70 text-xs sm:text-sm">50+ Certified Technicians</span>
               </div>
               <div className="hidden sm:flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (

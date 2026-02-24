@@ -104,7 +104,7 @@ export default function BookingSection() {
   }
 
   return (
-    <section id="booking" className="relative py-20 bg-[#071533]" data-testid="section-booking">
+    <section id="booking" className="relative py-12 sm:py-20 bg-[#071533]" data-testid="section-booking">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00C2FF]/30 to-transparent" />
       <div className="absolute inset-0 bg-neon-glow opacity-10" />
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,13 +124,13 @@ export default function BookingSection() {
           <p className="text-[#EAF7FF]/60">Quick & easy booking in 3 simple steps</p>
         </motion.div>
 
-        <div className="flex items-center justify-center gap-2 mb-10">
+        <div className="flex items-center justify-center gap-1 sm:gap-2 mb-8 sm:mb-10">
           {[1, 2, 3].map((s) => (
-            <div key={s} className="flex items-center gap-2">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ${step >= s ? "bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] text-[#0A1A3F]" : "border border-[#00C2FF]/30 text-[#00C2FF]/50"}`}>
+            <div key={s} className="flex items-center gap-1 sm:gap-2">
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm transition-all duration-300 ${step >= s ? "bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] text-[#0A1A3F]" : "border border-[#00C2FF]/30 text-[#00C2FF]/50"}`}>
                 {s}
               </div>
-              {s < 3 && <div className={`w-12 sm:w-20 h-0.5 transition-all duration-300 ${step > s ? "bg-gradient-to-r from-[#00C2FF] to-[#00FFE0]" : "bg-[#00C2FF]/20"}`} />}
+              {s < 3 && <div className={`w-8 sm:w-20 h-0.5 transition-all duration-300 ${step > s ? "bg-gradient-to-r from-[#00C2FF] to-[#00FFE0]" : "bg-[#00C2FF]/20"}`} />}
             </div>
           ))}
         </div>
@@ -328,11 +328,11 @@ export default function BookingSection() {
                 </div>
               </div>
 
-              <div className="rounded-lg border border-[#00C2FF]/20 bg-[#0A1A3F]/60 p-4 space-y-2">
+              <div className="rounded-lg border border-[#00C2FF]/20 bg-[#0A1A3F]/60 p-3 sm:p-4 space-y-2">
                 <h4 className="text-white font-semibold text-sm mb-3">Booking Summary</h4>
-                <div className="flex justify-between text-sm"><span className="text-[#EAF7FF]/50">Device:</span><span className="text-white">{form.brand} {form.deviceType}</span></div>
-                <div className="flex justify-between text-sm"><span className="text-[#EAF7FF]/50">Problem:</span><span className="text-white">{form.problem}</span></div>
-                <div className="flex justify-between text-sm"><span className="text-[#EAF7FF]/50">Location:</span><span className="text-white">{form.city}</span></div>
+                <div className="flex justify-between gap-2 text-xs sm:text-sm"><span className="text-[#EAF7FF]/50 shrink-0">Device:</span><span className="text-white text-right truncate">{form.brand} {form.deviceType}</span></div>
+                <div className="flex justify-between gap-2 text-xs sm:text-sm"><span className="text-[#EAF7FF]/50 shrink-0">Problem:</span><span className="text-white text-right truncate">{form.problem}</span></div>
+                <div className="flex justify-between gap-2 text-xs sm:text-sm"><span className="text-[#EAF7FF]/50 shrink-0">Location:</span><span className="text-white text-right truncate">{form.city}</span></div>
               </div>
 
               <div className="flex gap-3">

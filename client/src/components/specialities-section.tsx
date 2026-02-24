@@ -9,7 +9,7 @@ const specialities = [
 
 export default function SpecialitiesSection() {
   return (
-    <section className="relative py-20 bg-[#0A1A3F]" data-testid="section-specialities">
+    <section className="relative py-12 sm:py-20 bg-[#0A1A3F]" data-testid="section-specialities">
       <div className="absolute inset-0 bg-neon-glow opacity-30" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

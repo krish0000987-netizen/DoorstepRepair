@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 
 export default function BrandsSection() {
   return (
-    <section id="brands" className="relative py-20 bg-[#071533]" data-testid="section-brands">
+    <section id="brands" className="relative py-12 sm:py-20 bg-[#071533]" data-testid="section-brands">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00C2FF]/30 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

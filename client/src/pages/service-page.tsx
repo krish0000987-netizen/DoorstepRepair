@@ -56,7 +56,7 @@ export default function ServicePage() {
     <div className="min-h-screen bg-[#0A1A3F]">
       <Navbar />
 
-      <section className="relative pt-24 pb-16 overflow-hidden" data-testid="section-service-hero">
+      <section className="relative pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden" data-testid="section-service-hero">
         <div className="absolute inset-0">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-25"
@@ -77,15 +77,15 @@ export default function ServicePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-3">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-3">
               {service.name.split(" ")[0]}{" "}
               <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">
                 {service.name.split(" ").slice(1).join(" ") || "Service"}
               </span>
             </h1>
-            <p className="text-[#EAF7FF]/70 text-lg max-w-3xl mb-4">{service.description}</p>
+            <p className="text-[#EAF7FF]/70 text-sm sm:text-lg max-w-3xl mb-4">{service.description}</p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <a href={`https://wa.me/918169701980?text=Hi%2C%20I%20need%20${encodeURIComponent(service.name)}`} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] text-[#0A1A3F] font-bold shadow-[0_0_25px_rgba(0,194,255,0.3)] no-default-hover-elevate no-default-active-elevate" data-testid="button-service-book">
                   <MessageCircle className="w-5 h-5 mr-2" /> Book This Service
@@ -101,12 +101,12 @@ export default function ServicePage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#071533]" data-testid="section-service-features">
+      <section className="py-10 sm:py-16 bg-[#071533]" data-testid="section-service-features">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 items-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">What's Included</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <h2 className="text-xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">What's Included</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {service.features.map((feature, i) => (
                   <motion.div
                     key={feature}

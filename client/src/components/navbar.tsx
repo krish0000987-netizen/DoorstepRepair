@@ -20,21 +20,21 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A1A3F]/95 backdrop-blur-md border-b border-[#00C2FF]/20" data-testid="navbar">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 h-16 md:h-20">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 h-14 sm:h-16 md:h-20">
           <Link href="/">
-            <span className="flex items-center gap-2 shrink-0 cursor-pointer" data-testid="link-logo">
+            <span className="flex items-center gap-1.5 sm:gap-2 shrink-0 cursor-pointer" data-testid="link-logo">
               <img
                 src="/images/logo-devices-doctor.png"
                 alt="Devices Doctor"
-                className="w-10 h-10 rounded-full object-contain"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                 }}
               />
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-white tracking-wide leading-tight">DEVICES</span>
-                <span className="text-xs font-semibold text-[#00C2FF] tracking-[0.2em] leading-tight">DOCTOR</span>
+                <span className="text-sm sm:text-lg font-bold text-white tracking-wide leading-tight">DEVICES</span>
+                <span className="text-[10px] sm:text-xs font-semibold text-[#00C2FF] tracking-[0.2em] leading-tight">DOCTOR</span>
               </div>
             </span>
           </Link>

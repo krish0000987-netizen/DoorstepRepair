@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { Monitor, Battery, Zap, Code, Droplets, Camera, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Link } from "wouter";
 
 const services = [
-  { icon: Monitor, name: "Screen Replacement", slug: "screen-replacement", desc: "Cracked or broken screen? We replace with original quality displays.", price: "Starting ₹999" },
-  { icon: Battery, name: "Battery Replacement", slug: "battery-replacement", desc: "Battery draining fast? Get genuine battery replacement.", price: "Starting ₹499" },
-  { icon: Zap, name: "Charging Issues", slug: "charging-issues", desc: "Not charging? We fix charging ports and connectors.", price: "Starting ₹399" },
-  { icon: Code, name: "Software Problems", slug: "software-problems", desc: "Hang, slow, or virus? Complete software repair.", price: "Starting ₹299" },
-  { icon: Droplets, name: "Water Damage Treatment", slug: "water-damage", desc: "Phone fell in water? Emergency water damage repair.", price: "Starting ₹799" },
-  { icon: Camera, name: "Camera & Speaker Repair", slug: "camera-speaker-repair", desc: "Blurry camera or no sound? We fix it all.", price: "Starting ₹599" },
+  { image: "/images/svc-screen.jpg", name: "Screen Replacement", slug: "screen-replacement", desc: "Cracked or broken screen? We replace with original quality displays.", price: "Starting ₹999" },
+  { image: "/images/svc-battery.jpg", name: "Battery Replacement", slug: "battery-replacement", desc: "Battery draining fast? Get genuine battery replacement.", price: "Starting ₹499" },
+  { image: "/images/svc-charging.jpg", name: "Charging Issues", slug: "charging-issues", desc: "Not charging? We fix charging ports and connectors.", price: "Starting ₹399" },
+  { image: "/images/svc-software.jpg", name: "Software Problems", slug: "software-problems", desc: "Hang, slow, or virus? Complete software repair.", price: "Starting ₹299" },
+  { image: "/images/svc-water.jpg", name: "Water Damage Treatment", slug: "water-damage", desc: "Phone fell in water? Emergency water damage repair.", price: "Starting ₹799" },
+  { image: "/images/svc-camera.jpg", name: "Camera & Speaker Repair", slug: "camera-speaker-repair", desc: "Blurry camera or no sound? We fix it all.", price: "Starting ₹599" },
 ];
 
 export default function ServicesSection() {
@@ -40,23 +40,26 @@ export default function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08, duration: 0.5 }}
-                className="group relative rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/60 to-[#0A1A3F]/80 p-6 transition-all duration-300 hover:border-[#00C2FF]/40 hover:shadow-[0_0_25px_rgba(0,194,255,0.1)] cursor-pointer h-full"
+                className="group relative rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/60 to-[#0A1A3F]/80 overflow-hidden transition-all duration-300 hover:border-[#00C2FF]/40 hover:shadow-[0_0_25px_rgba(0,194,255,0.1)] cursor-pointer h-full"
                 data-testid={`card-service-${index}`}
               >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/25 flex items-center justify-center group-hover:bg-[#00C2FF]/20 transition-colors duration-300">
-                    <service.icon className="w-6 h-6 text-[#00C2FF]" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-white font-bold text-lg mb-1 flex items-center gap-1">
-                      {service.name}
-                      <ChevronRight className="w-4 h-4 text-[#00C2FF]/50 group-hover:text-[#00C2FF] group-hover:translate-x-1 transition-all duration-300" />
-                    </h3>
-                    <p className="text-[#EAF7FF]/50 text-sm mb-3 leading-relaxed">{service.desc}</p>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#00FFE0]/10 border border-[#00FFE0]/20 text-[#00FFE0] text-xs font-semibold">
-                      {service.price}
-                    </span>
-                  </div>
+                <div className="relative h-40 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A3F] via-[#0A1A3F]/70 to-[#0A1A3F]/20" />
+                  <span className="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-[#00FFE0]/15 border border-[#00FFE0]/30 text-[#00FFE0] text-xs font-semibold backdrop-blur-sm">
+                    {service.price}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <h3 className="text-white font-bold text-lg mb-1 flex items-center gap-1">
+                    {service.name}
+                    <ChevronRight className="w-4 h-4 text-[#00C2FF]/50 group-hover:text-[#00C2FF] group-hover:translate-x-1 transition-all duration-300" />
+                  </h3>
+                  <p className="text-[#EAF7FF]/50 text-sm leading-relaxed">{service.desc}</p>
                 </div>
               </motion.div>
             </Link>

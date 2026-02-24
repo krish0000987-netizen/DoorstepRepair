@@ -4,8 +4,14 @@ import { Button } from "@/components/ui/button";
 
 export default function CTASection() {
   return (
-    <section className="relative py-20 bg-[#0A1A3F]" data-testid="section-cta">
+    <section className="relative py-20 bg-[#0A1A3F] overflow-hidden" data-testid="section-cta">
       <div className="absolute inset-0">
+        <img
+          src="/images/cta-bg.jpg"
+          alt=""
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1A3F] via-[#0A1A3F]/90 to-[#0A1A3F]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00C2FF]/8 rounded-full blur-[150px]" />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

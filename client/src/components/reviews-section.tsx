@@ -32,56 +32,70 @@ export default function ReviewsSection() {
     <section id="reviews" className="relative py-20 bg-[#071533]" data-testid="section-reviews">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00C2FF]/30 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#00C2FF]" />
-            <span className="text-[#00C2FF] text-sm font-semibold tracking-widest uppercase">Real Reviews</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#00C2FF]" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">What Our Customers Say</h2>
-          <div className="flex items-center justify-center gap-2 mt-4">
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-              ))}
+        <div className="grid lg:grid-cols-5 gap-8 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-8 bg-[#00C2FF]" />
+              <span className="text-[#00C2FF] text-sm font-semibold tracking-widest uppercase">Real Reviews</span>
             </div>
-            <span className="text-[#EAF7FF]/70 text-sm font-medium">4.9/5 from 500+ reviews</span>
-          </div>
-        </motion.div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">What Our Customers Say</h2>
+            <div className="flex items-center gap-2 mb-6">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <span className="text-[#EAF7FF]/70 text-sm font-medium">4.9/5 from 500+ reviews</span>
+            </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {displayReviews.map((review, index) => (
-            <motion.div
-              key={review.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="relative rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/60 to-[#0A1A3F]/80 p-5"
-              data-testid={`card-review-${index}`}
-            >
-              <Quote className="w-8 h-8 text-[#00C2FF]/20 mb-3" />
-              <p className="text-[#EAF7FF]/70 text-sm leading-relaxed mb-4">{review.comment}</p>
-              <div className="mt-auto">
-                <StarRating rating={review.rating} />
-                <div className="mt-3 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#00C2FF] to-[#00FFE0] flex items-center justify-center text-[#0A1A3F] font-bold text-sm">
-                    {review.customerName.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">{review.customerName}</p>
-                    <p className="text-[#00C2FF]/60 text-xs">{review.city} • {review.service}</p>
+            <div className="hidden lg:block relative rounded-xl overflow-hidden border border-[#00C2FF]/15">
+              <img
+                src="/images/review-customer.jpg"
+                alt="Happy customer"
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071533] via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white text-sm font-medium">"Best repair service in town!"</p>
+                <p className="text-[#00C2FF]/70 text-xs mt-1">Trusted by thousands of customers</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
+            {displayReviews.map((review, index) => (
+              <motion.div
+                key={review.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="relative rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/60 to-[#0A1A3F]/80 p-5"
+                data-testid={`card-review-${index}`}
+              >
+                <Quote className="w-8 h-8 text-[#00C2FF]/20 mb-3" />
+                <p className="text-[#EAF7FF]/70 text-sm leading-relaxed mb-4">{review.comment}</p>
+                <div className="mt-auto">
+                  <StarRating rating={review.rating} />
+                  <div className="mt-3 flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#00C2FF] to-[#00FFE0] flex items-center justify-center text-[#0A1A3F] font-bold text-sm">
+                      {review.customerName.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold text-sm">{review.customerName}</p>
+                      <p className="text-[#00C2FF]/60 text-xs">{review.city} • {review.service}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

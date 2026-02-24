@@ -7,6 +7,16 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/floating-whatsapp";
 
+const problemImages: Record<string, string> = {
+  "Screen Replacement": "/images/svc-screen.jpg",
+  "Battery Replacement": "/images/svc-battery.jpg",
+  "Charging Port Repair": "/images/svc-charging.jpg",
+  "Camera Repair": "/images/svc-camera.jpg",
+  "Water Damage": "/images/svc-water.jpg",
+  "Software Issue": "/images/svc-software.jpg",
+  "Glyph Interface Repair": "/images/svc-screen.jpg",
+};
+
 export default function BrandPage() {
   const { slug } = useParams<{ slug: string }>();
   const brand = getBrandBySlug(slug || "");
@@ -124,17 +134,21 @@ export default function BrandPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="group rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/60 to-[#0A1A3F]/80 p-6 hover:border-[#00C2FF]/40 transition-all duration-300"
+                className="group rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/60 to-[#0A1A3F]/80 overflow-hidden hover:border-[#00C2FF]/40 transition-all duration-300"
                 data-testid={`card-brand-problem-${index}`}
               >
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/25 flex items-center justify-center">
-                    <Wrench className="w-5 h-5 text-[#00C2FF]" />
-                  </div>
-                  <span className="inline-flex px-3 py-1 rounded-full bg-[#00FFE0]/10 border border-[#00FFE0]/20 text-[#00FFE0] text-sm font-bold">
+                <div className="relative h-32 overflow-hidden">
+                  <img
+                    src={problemImages[problem.name] || "/images/svc-screen.jpg"}
+                    alt={problem.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A3F] via-[#0A1A3F]/50 to-transparent" />
+                  <span className="absolute top-3 right-3 inline-flex px-3 py-1 rounded-full bg-[#00FFE0]/15 border border-[#00FFE0]/30 text-[#00FFE0] text-sm font-bold backdrop-blur-sm">
                     ₹{problem.price}
                   </span>
                 </div>
+                <div className="p-5">
                 <h3 className="text-white font-bold text-lg mb-1">{problem.name}</h3>
                 <p className="text-[#EAF7FF]/50 text-sm mb-4">{problem.description}</p>
                 <a
@@ -146,6 +160,7 @@ export default function BrandPage() {
                     Book Now <ChevronRight className="w-4 h-4 ml-1" />
                   </Button>
                 </a>
+                </div>
               </motion.div>
             ))}
           </div>

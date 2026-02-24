@@ -109,21 +109,46 @@ export default function ServicePage() {
 
       <section className="py-16 bg-[#071533]" data-testid="section-service-features">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">What's Included</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {service.features.map((feature, i) => (
-              <motion.div
-                key={feature}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="flex items-center gap-3 p-4 rounded-xl border border-[#00C2FF]/10 bg-[#0d2255]/40"
-              >
-                <CheckCircle2 className="w-5 h-5 text-[#00FFE0] shrink-0" />
-                <span className="text-white text-sm font-medium">{feature}</span>
-              </motion.div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">What's Included</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {service.features.map((feature, i) => (
+                  <motion.div
+                    key={feature}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                    className="flex items-center gap-3 p-4 rounded-xl border border-[#00C2FF]/10 bg-[#0d2255]/40"
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-[#00FFE0] shrink-0" />
+                    <span className="text-white text-sm font-medium">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="hidden lg:block"
+            >
+              <div className="relative rounded-2xl overflow-hidden border border-[#00C2FF]/20 shadow-[0_0_40px_rgba(0,194,255,0.1)]">
+                <img
+                  src={service.heroImage}
+                  alt={service.name}
+                  className="w-full h-[380px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071533] via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <span className="inline-flex px-4 py-2 rounded-full bg-[#00FFE0]/15 border border-[#00FFE0]/30 text-[#00FFE0] font-bold backdrop-blur-sm">
+                    {service.priceRange}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -134,7 +159,7 @@ export default function ServicePage() {
           <p className="text-[#EAF7FF]/50 mb-8">Select your brand to see exact pricing for {service.name.toLowerCase()}</p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {allBrands.slice(0, 9).map((brand, i) => {
+            {allBrands.map((brand, i) => {
               const problemMatch = brand.problems.find(
                 (p) => p.name.toLowerCase() === service.name.toLowerCase() ||
                   service.name.toLowerCase().includes(p.name.split(" ")[0].toLowerCase())
@@ -171,13 +196,6 @@ export default function ServicePage() {
                 </motion.div>
               );
             })}
-          </div>
-          <div className="mt-4 text-center">
-            <Link href="/#brands">
-              <span className="text-[#00C2FF] text-sm font-medium hover:text-[#00FFE0] transition-colors cursor-pointer">
-                View all {allBrands.length} brands →
-              </span>
-            </Link>
           </div>
         </div>
       </section>

@@ -21,7 +21,7 @@ export default function BrandsSection() {
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#00C2FF]" />
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Brands We Repair</h2>
-          <p className="text-[#EAF7FF]/60 max-w-2xl mx-auto">We repair all major brands. Select your brand for specialized repair services and pricing.</p>
+          <p className="text-[#EAF7FF]/60 max-w-2xl mx-auto">We repair all major brands. Select your brand for specialized repair services.</p>
         </motion.div>
 
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4">
@@ -40,8 +40,17 @@ export default function BrandsSection() {
                 >
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#00C2FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="relative z-10">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-white/15 transition-colors duration-300">
-                      <span className="text-white font-bold text-sm sm:text-base">{brand.name.charAt(0)}</span>
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-2 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-white/15 transition-colors duration-300 overflow-hidden p-2">
+                      <img
+                        src={brand.logo}
+                        alt={`${brand.name} logo`}
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.parentElement!.innerHTML = `<span class="text-white font-bold text-lg">${brand.name.charAt(0)}</span>`;
+                        }}
+                      />
                     </div>
                     <h3 className="text-white font-semibold text-xs sm:text-sm truncate">{brand.name}</h3>
                     <div className="flex items-center justify-center gap-0.5 mt-1 text-[#00C2FF]/60 group-hover:text-[#00C2FF] transition-colors">

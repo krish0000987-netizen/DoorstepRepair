@@ -1,0 +1,78 @@
+import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
+import { Link } from "wouter";
+import { serviceDetails } from "@/lib/brands-data";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import FloatingWhatsApp from "@/components/floating-whatsapp";
+
+export default function ServicesListingPage() {
+  return (
+    <div className="min-h-screen bg-[#0A1A3F]">
+      <Navbar />
+
+      <section className="relative pt-24 pb-16 overflow-hidden" data-testid="section-services-hero">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url(/images/svc-screen.jpg)" }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A1A3F]/70 via-[#0A1A3F]/50 to-[#0A1A3F]" />
+          <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#00C2FF]/8 rounded-full blur-[120px]" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+              Our <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">Services</span>
+            </h1>
+            <p className="text-[#EAF7FF]/70 text-lg max-w-2xl mx-auto">
+              Professional doorstep repair services for all your devices. Expert technicians, genuine parts, 90-day warranty.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-[#071533]" data-testid="section-services-grid">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {serviceDetails.map((service, index) => (
+              <Link key={service.slug} href={`/services/${service.slug}`}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="group relative rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/60 to-[#0A1A3F]/80 overflow-hidden transition-all duration-300 hover:border-[#00C2FF]/40 hover:shadow-[0_0_25px_rgba(0,194,255,0.1)] cursor-pointer h-full"
+                  data-testid={`card-service-${service.slug}`}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={service.heroImage}
+                      alt={service.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A3F] via-[#0A1A3F]/60 to-[#0A1A3F]/20" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-white font-bold text-xl mb-2 flex items-center gap-2">
+                      {service.name}
+                      <ChevronRight className="w-5 h-5 text-[#00C2FF]/50 group-hover:text-[#00C2FF] group-hover:translate-x-1 transition-all duration-300" />
+                    </h3>
+                    <p className="text-[#EAF7FF]/50 text-sm leading-relaxed mb-4">{service.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {service.features.slice(0, 3).map((f) => (
+                        <span key={f} className="px-2 py-1 rounded-md bg-[#00C2FF]/10 border border-[#00C2FF]/20 text-[#00C2FF] text-xs">
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+      <FloatingWhatsApp />
+    </div>
+  );
+}

@@ -3,12 +3,12 @@ import { ChevronRight } from "lucide-react";
 import { Link } from "wouter";
 
 const services = [
-  { image: "/images/svc-screen.jpg", name: "Screen Replacement", slug: "screen-replacement", desc: "Cracked or broken screen? We replace with original quality displays.", price: "Starting ₹999" },
-  { image: "/images/svc-battery.jpg", name: "Battery Replacement", slug: "battery-replacement", desc: "Battery draining fast? Get genuine battery replacement.", price: "Starting ₹499" },
-  { image: "/images/svc-charging.jpg", name: "Charging Issues", slug: "charging-issues", desc: "Not charging? We fix charging ports and connectors.", price: "Starting ₹399" },
-  { image: "/images/svc-software.jpg", name: "Software Problems", slug: "software-problems", desc: "Hang, slow, or virus? Complete software repair.", price: "Starting ₹299" },
-  { image: "/images/svc-water.jpg", name: "Water Damage Treatment", slug: "water-damage", desc: "Phone fell in water? Emergency water damage repair.", price: "Starting ₹799" },
-  { image: "/images/svc-camera.jpg", name: "Camera & Speaker Repair", slug: "camera-speaker-repair", desc: "Blurry camera or no sound? We fix it all.", price: "Starting ₹599" },
+  { image: "/images/svc-screen.jpg", name: "Screen Replacement", slug: "screen-replacement", desc: "Cracked or broken screen? We replace with original quality displays." },
+  { image: "/images/svc-battery.jpg", name: "Battery Replacement", slug: "battery-replacement", desc: "Battery draining fast? Get genuine battery replacement." },
+  { image: "/images/svc-charging.jpg", name: "Charging Issues", slug: "charging-issues", desc: "Not charging? We fix charging ports and connectors." },
+  { image: "/images/svc-software.jpg", name: "Software Problems", slug: "software-problems", desc: "Hang, slow, or virus? Complete software repair." },
+  { image: "/images/svc-water.jpg", name: "Water Damage Treatment", slug: "water-damage", desc: "Phone fell in water? Emergency water damage repair." },
+  { image: "/images/svc-camera.jpg", name: "Camera & Speaker Repair", slug: "camera-speaker-repair", desc: "Blurry camera or no sound? We fix it all." },
 ];
 
 export default function ServicesSection() {
@@ -50,9 +50,6 @@ export default function ServicesSection() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A3F] via-[#0A1A3F]/70 to-[#0A1A3F]/20" />
-                  <span className="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-[#00FFE0]/15 border border-[#00FFE0]/30 text-[#00FFE0] text-xs font-semibold backdrop-blur-sm">
-                    {service.price}
-                  </span>
                 </div>
                 <div className="p-5">
                   <h3 className="text-white font-bold text-lg mb-1 flex items-center gap-1">

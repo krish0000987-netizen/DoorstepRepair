@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Clock, Home, UserCheck, Shield, IndianRupee, Award } from "lucide-react";
+import { Clock, Home, UserCheck, Shield, ThumbsUp, Award } from "lucide-react";
 
 const reasons = [
   { icon: Clock, title: "30 Minutes Fast Service", desc: "We reach your doorstep within 30 minutes of booking" },
   { icon: Home, title: "Doorstep Repair", desc: "Repair at your home or office, no need to visit shops" },
   { icon: UserCheck, title: "Professional Technicians", desc: "Certified and experienced technicians" },
   { icon: Shield, title: "Genuine Quality Parts", desc: "We use only genuine OEM quality parts" },
-  { icon: IndianRupee, title: "Affordable Price", desc: "Transparent pricing with no hidden charges" },
+  { icon: ThumbsUp, title: "Trusted Service", desc: "No hidden charges, complete transparency on every repair" },
   { icon: Award, title: "Service Warranty", desc: "90-day warranty on all repairs" },
 ];
 

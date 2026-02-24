@@ -84,12 +84,6 @@ export default function ServicePage() {
               </span>
             </h1>
             <p className="text-[#EAF7FF]/70 text-lg max-w-3xl mb-4">{service.description}</p>
-            <div className="flex items-center gap-3 mb-8">
-              <span className="inline-flex px-4 py-2 rounded-full bg-[#00FFE0]/10 border border-[#00FFE0]/20 text-[#00FFE0] font-bold text-lg">
-                {service.priceRange}
-              </span>
-              <span className="text-[#EAF7FF]/50 text-sm">Starting price varies by device</span>
-            </div>
 
             <div className="flex flex-wrap gap-3">
               <a href={`https://wa.me/918169701980?text=Hi%2C%20I%20need%20${encodeURIComponent(service.name)}`} target="_blank" rel="noopener noreferrer">
@@ -142,21 +136,16 @@ export default function ServicePage() {
                   className="w-full h-[380px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071533] via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="inline-flex px-4 py-2 rounded-full bg-[#00FFE0]/15 border border-[#00FFE0]/30 text-[#00FFE0] font-bold backdrop-blur-sm">
-                    {service.priceRange}
-                  </span>
-                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-[#0A1A3F]" data-testid="section-service-brands-pricing">
+      <section className="py-16 bg-[#0A1A3F]" data-testid="section-service-brands">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Brand-wise Pricing</h2>
-          <p className="text-[#EAF7FF]/50 mb-8">Select your brand to see exact pricing for {service.name.toLowerCase()}</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Brands We Cover</h2>
+          <p className="text-[#EAF7FF]/50 mb-8">Select your brand for {service.name.toLowerCase()} details</p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {allBrands.map((brand, i) => {
@@ -164,8 +153,6 @@ export default function ServicePage() {
                 (p) => p.name.toLowerCase() === service.name.toLowerCase() ||
                   service.name.toLowerCase().includes(p.name.split(" ")[0].toLowerCase())
               );
-              const price = problemMatch?.price || "N/A";
-
               return (
                 <motion.div
                   key={brand.slug}
@@ -175,22 +162,17 @@ export default function ServicePage() {
                   transition={{ delay: i * 0.05 }}
                 >
                   <Link href={`/brands/${brand.slug}`}>
-                    <div className="group flex items-center justify-between gap-3 p-4 rounded-xl border border-[#00C2FF]/15 bg-[#0d2255]/40 hover:border-[#00C2FF]/40 transition-all cursor-pointer" data-testid={`card-brand-price-${brand.slug}`}>
+                    <div className="group flex items-center justify-between gap-3 p-4 rounded-xl border border-[#00C2FF]/15 bg-[#0d2255]/40 hover:border-[#00C2FF]/40 transition-all cursor-pointer" data-testid={`card-brand-${brand.slug}`}>
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">{brand.name.charAt(0)}</span>
+                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden p-1.5">
+                          <img src={brand.logo} alt={brand.name} className="w-full h-full object-contain" />
                         </div>
                         <div>
                           <h3 className="text-white font-semibold text-sm">{brand.name}</h3>
                           <p className="text-[#EAF7FF]/40 text-xs">{service.name}</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-[#00FFE0] font-bold">
-                          {typeof price === "number" ? `₹${price}` : price}
-                        </span>
-                        <ChevronRight className="w-4 h-4 text-[#00C2FF]/50 group-hover:text-[#00C2FF]" />
-                      </div>
+                      <ChevronRight className="w-4 h-4 text-[#00C2FF]/50 group-hover:text-[#00C2FF]" />
                     </div>
                   </Link>
                 </motion.div>

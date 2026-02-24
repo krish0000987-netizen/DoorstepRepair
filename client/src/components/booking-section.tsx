@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { queryClient } from "@/lib/queryClient";
+import { mumbaiAreas } from "@/lib/areas-data";
 
 const deviceTypes = ["Mobile Phone", "Laptop", "Tablet / iPad", "Smart Watch"];
 const brands: Record<string, string[]> = {
@@ -16,36 +17,11 @@ const brands: Record<string, string[]> = {
   "Tablet / iPad": ["Apple iPad", "Samsung Tab", "Lenovo Tab", "Other"],
   "Smart Watch": ["Apple Watch", "Samsung Galaxy Watch", "Noise", "boAt", "Other"],
 };
-const problems: Record<string, { name: string; price: number }[]> = {
-  "Mobile Phone": [
-    { name: "Screen Replacement", price: 999 },
-    { name: "Battery Replacement", price: 499 },
-    { name: "Charging Port Repair", price: 399 },
-    { name: "Camera Repair", price: 599 },
-    { name: "Speaker / Mic Issue", price: 499 },
-    { name: "Water Damage", price: 799 },
-    { name: "Software Issue", price: 299 },
-  ],
-  "Laptop": [
-    { name: "Screen Replacement", price: 2999 },
-    { name: "Battery Replacement", price: 1999 },
-    { name: "Keyboard Replacement", price: 1499 },
-    { name: "Hinge Repair", price: 999 },
-    { name: "Motherboard Repair", price: 3999 },
-    { name: "Software / OS Issue", price: 499 },
-  ],
-  "Tablet / iPad": [
-    { name: "Screen Replacement", price: 1999 },
-    { name: "Battery Replacement", price: 1499 },
-    { name: "Charging Port Repair", price: 699 },
-    { name: "Software Issue", price: 399 },
-  ],
-  "Smart Watch": [
-    { name: "Screen Replacement", price: 1499 },
-    { name: "Battery Replacement", price: 999 },
-    { name: "Band Replacement", price: 299 },
-    { name: "Software Issue", price: 499 },
-  ],
+const problems: Record<string, string[]> = {
+  "Mobile Phone": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Camera Repair", "Speaker / Mic Issue", "Water Damage", "Software Issue"],
+  "Laptop": ["Screen Replacement", "Battery Replacement", "Keyboard Replacement", "Hinge Repair", "Motherboard Repair", "Software / OS Issue"],
+  "Tablet / iPad": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Software Issue"],
+  "Smart Watch": ["Screen Replacement", "Battery Replacement", "Band Replacement", "Software Issue"],
 };
 const timeSlots = ["9:00 AM - 11:00 AM", "11:00 AM - 1:00 PM", "1:00 PM - 3:00 PM", "3:00 PM - 5:00 PM", "5:00 PM - 7:00 PM"];
 
@@ -89,11 +65,6 @@ export default function BookingSection() {
       updated.problem = "";
       updated.estimatedPrice = 0;
     }
-    if (field === "problem") {
-      const deviceProblems = problems[form.deviceType] || [];
-      const found = deviceProblems.find((p) => p.name === value);
-      updated.estimatedPrice = found?.price || 0;
-    }
     setForm(updated);
   };
 
@@ -118,11 +89,6 @@ export default function BookingSection() {
           <h2 className="text-3xl font-bold text-white mb-3">Booking Confirmed!</h2>
           <p className="text-[#EAF7FF]/70 mb-2">Thank you, {form.customerName}!</p>
           <p className="text-[#EAF7FF]/60 text-sm mb-6">Our technician will arrive at your doorstep on {form.scheduledDate} during {form.scheduledTime}.</p>
-          {form.estimatedPrice > 0 && (
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#00FFE0]/30 bg-[#00FFE0]/10">
-              <span className="text-[#00FFE0] font-bold text-lg">Estimated: ₹{form.estimatedPrice}</span>
-            </div>
-          )}
           <div className="mt-8">
             <Button
               onClick={() => { setSubmitted(false); setStep(1); setForm({ deviceType: "", brand: "", model: "", problem: "", customerName: "", phone: "", email: "", address: "", city: "", scheduledDate: "", scheduledTime: "", estimatedPrice: 0 }); }}
@@ -230,18 +196,12 @@ export default function BookingSection() {
                     </SelectTrigger>
                     <SelectContent className="bg-[#0d2255] border-[#00C2FF]/30">
                       {(problems[form.deviceType] || []).map((p) => (
-                        <SelectItem key={p.name} value={p.name} className="text-white hover:bg-[#00C2FF]/10">
-                          {p.name} - ₹{p.price}
+                        <SelectItem key={p} value={p} className="text-white hover:bg-[#00C2FF]/10">
+                          {p}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
-                </div>
-              )}
-              {form.estimatedPrice > 0 && (
-                <div className="rounded-lg border border-[#00FFE0]/20 bg-[#00FFE0]/5 p-4 flex items-center justify-between gap-4">
-                  <span className="text-[#EAF7FF]/70 text-sm">Estimated Price:</span>
-                  <span className="text-[#00FFE0] font-bold text-2xl">₹{form.estimatedPrice}</span>
                 </div>
               )}
               <Button
@@ -309,8 +269,8 @@ export default function BookingSection() {
                     <SelectValue placeholder="Select city" />
                   </SelectTrigger>
                   <SelectContent className="bg-[#0d2255] border-[#00C2FF]/30">
-                    {["Surat", "Mumbai", "Delhi", "Gorakhpur", "Bangalore", "Pune"].map((c) => (
-                      <SelectItem key={c} value={c} className="text-white hover:bg-[#00C2FF]/10">{c}</SelectItem>
+                    {mumbaiAreas.map((a) => (
+                      <SelectItem key={a.name} value={a.name} className="text-white hover:bg-[#00C2FF]/10">{a.name} ({a.region})</SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
@@ -373,9 +333,6 @@ export default function BookingSection() {
                 <div className="flex justify-between text-sm"><span className="text-[#EAF7FF]/50">Device:</span><span className="text-white">{form.brand} {form.deviceType}</span></div>
                 <div className="flex justify-between text-sm"><span className="text-[#EAF7FF]/50">Problem:</span><span className="text-white">{form.problem}</span></div>
                 <div className="flex justify-between text-sm"><span className="text-[#EAF7FF]/50">Location:</span><span className="text-white">{form.city}</span></div>
-                {form.estimatedPrice > 0 && (
-                  <div className="flex justify-between text-sm pt-2 border-t border-[#00C2FF]/10"><span className="text-[#EAF7FF]/50">Est. Price:</span><span className="text-[#00FFE0] font-bold text-lg">₹{form.estimatedPrice}</span></div>
-                )}
               </div>
 
               <div className="flex gap-3">

@@ -2,9 +2,9 @@
 
 ## Overview
 
-Devices Doctor is a doorstep device repair booking platform targeting Indian cities. Customers can browse repair services (screen replacement, battery, charging, software, water damage, camera/speaker), see pricing, read reviews, and book a technician visit. The platform promises 30-minute doorstep repair with genuine parts and 90-day warranty.
+Devices Doctor is a doorstep device repair booking platform targeting Mumbai and nearby areas. Customers can browse repair services (screen replacement, battery, charging, software, water damage, camera/speaker), read reviews, and book a technician visit. The platform promises 30-minute doorstep repair with genuine parts and 90-day warranty. Prices are NOT shown on the frontend.
 
-The application is a single-page marketing and booking website with a full-stack architecture: React frontend, Express backend, and PostgreSQL database. It currently serves one main page (Home) with multiple sections: hero, specialities, services, why-choose-us, reviews, booking form, cities served, CTA, and footer. A floating WhatsApp button provides quick customer contact.
+The application is a multi-page website with a full-stack architecture: React frontend, Express backend, and PostgreSQL database. Pages include Home, Services listing, Brands listing, Areas, About Us, Contact, individual Brand pages (17 brands), and individual Service pages (6 services). A floating WhatsApp button provides quick customer contact.
 
 ## User Preferences
 
@@ -66,7 +66,7 @@ client/           # Frontend React application
   src/
     components/   # Page sections and UI components
     components/ui/  # shadcn/ui component library
-    pages/        # Route pages (home, not-found)
+    pages/        # Route pages (home, services-listing, brands-listing, areas, about, contact, brand-page, service-page, not-found)
     hooks/        # Custom React hooks
     lib/          # Utilities and query client config
 server/           # Backend Express application

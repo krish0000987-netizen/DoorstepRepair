@@ -58,9 +58,14 @@ export default function BrandPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00C2FF]/30 bg-[#00C2FF]/10 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#00FFE0] animate-pulse" />
-              <span className="text-[#00C2FF] text-sm font-medium">Authorized Repair Center</span>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-16 h-16 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-3">
+                <img src={brand.logo} alt={`${brand.name} logo`} className="w-full h-full object-contain" />
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00C2FF]/30 bg-[#00C2FF]/10">
+                <span className="w-2 h-2 rounded-full bg-[#00FFE0] animate-pulse" />
+                <span className="text-[#00C2FF] text-sm font-medium">Authorized Repair Center</span>
+              </div>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-3">
@@ -123,7 +128,7 @@ export default function BrandPage() {
               <div className="h-px w-8 bg-[#00C2FF]" />
               <span className="text-[#00C2FF] text-sm font-semibold tracking-widest uppercase">Repair Services</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">{brand.name} Repair Pricing</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">{brand.name} Repair Services</h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -144,9 +149,6 @@ export default function BrandPage() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A3F] via-[#0A1A3F]/50 to-transparent" />
-                  <span className="absolute top-3 right-3 inline-flex px-3 py-1 rounded-full bg-[#00FFE0]/15 border border-[#00FFE0]/30 text-[#00FFE0] text-sm font-bold backdrop-blur-sm">
-                    ₹{problem.price}
-                  </span>
                 </div>
                 <div className="p-5">
                 <h3 className="text-white font-bold text-lg mb-1">{problem.name}</h3>

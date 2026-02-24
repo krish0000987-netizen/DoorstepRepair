@@ -22,10 +22,10 @@ export default function ReviewsSection() {
   });
 
   const displayReviews = reviews.length > 0 ? reviews : [
-    { id: 1, customerName: "Rahul Sharma", rating: 5, comment: "Amazing service! My phone screen was replaced in just 25 minutes at my doorstep. Highly recommended!", service: "Screen Replacement", city: "Surat", createdAt: new Date().toISOString() },
-    { id: 2, customerName: "Priya Patel", rating: 5, comment: "Very professional technician. Fixed my laptop within 30 minutes. Genuine parts and great warranty.", service: "Battery Replacement", city: "Mumbai", createdAt: new Date().toISOString() },
-    { id: 3, customerName: "Amit Kumar", rating: 4, comment: "Good service at affordable price. The technician was very polite and skilled. Will use again!", service: "Charging Issues", city: "Delhi", createdAt: new Date().toISOString() },
-    { id: 4, customerName: "Sneha Gupta", rating: 5, comment: "Saved my water damaged phone! Thought it was gone but the technician fixed it perfectly.", service: "Water Damage", city: "Gorakhpur", createdAt: new Date().toISOString() },
+    { id: 1, customerName: "Rahul Sharma", rating: 5, comment: "Amazing service! My phone screen was replaced in just 25 minutes at my doorstep. Highly recommended!", service: "Screen Replacement", city: "Andheri", createdAt: new Date().toISOString() },
+    { id: 2, customerName: "Priya Patel", rating: 5, comment: "Very professional technician. Fixed my laptop within 30 minutes. Genuine parts and great warranty.", service: "Battery Replacement", city: "Bandra", createdAt: new Date().toISOString() },
+    { id: 3, customerName: "Amit Kumar", rating: 4, comment: "Excellent service! The technician was very polite and skilled. Will definitely use again!", service: "Charging Issues", city: "Thane", createdAt: new Date().toISOString() },
+    { id: 4, customerName: "Sneha Gupta", rating: 5, comment: "Saved my water damaged phone! Thought it was gone but the technician fixed it perfectly.", service: "Water Damage", city: "Powai", createdAt: new Date().toISOString() },
   ];
 
   return (

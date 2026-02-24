@@ -1,5 +1,6 @@
-import { Stethoscope, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { SiInstagram, SiFacebook } from "react-icons/si";
+import { Link } from "wouter";
 
 export default function Footer() {
   return (
@@ -8,9 +9,11 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00C2FF] to-[#00FFE0] flex items-center justify-center">
-                <Stethoscope className="w-5 h-5 text-[#0A1A3F]" />
-              </div>
+              <img
+                src="/images/logo-devices-doctor.png"
+                alt="Devices Doctor"
+                className="w-10 h-10 rounded-full object-contain"
+              />
               <div>
                 <span className="text-white font-bold text-lg block leading-tight">DEVICES DOCTOR</span>
                 <span className="text-[#00C2FF] text-xs tracking-widest">Your Device Health Experts</span>
@@ -24,8 +27,19 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-bold text-base mb-4">Our Services</h3>
             <ul className="space-y-2">
-              {["Screen Replacement", "Battery Replacement", "Charging Issues", "Software Problems", "Water Damage", "Camera Repair"].map((s) => (
-                <li key={s}><a href="#services" className="text-[#EAF7FF]/50 text-sm hover:text-[#00C2FF] transition-colors">{s}</a></li>
+              {[
+                { label: "Screen Replacement", slug: "screen-replacement" },
+                { label: "Battery Replacement", slug: "battery-replacement" },
+                { label: "Charging Issues", slug: "charging-issues" },
+                { label: "Software Problems", slug: "software-problems" },
+                { label: "Water Damage", slug: "water-damage" },
+                { label: "Camera Repair", slug: "camera-speaker-repair" },
+              ].map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`}>
+                    <span className="text-[#EAF7FF]/50 text-sm hover:text-[#00C2FF] transition-colors cursor-pointer">{s.label}</span>
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
@@ -33,8 +47,19 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-bold text-base mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {[{ label: "Home", href: "#home" }, { label: "Services", href: "#services" }, { label: "Book Repair", href: "#booking" }, { label: "Reviews", href: "#reviews" }, { label: "Cities", href: "#cities" }].map((link) => (
-                <li key={link.label}><a href={link.href} className="text-[#EAF7FF]/50 text-sm hover:text-[#00C2FF] transition-colors">{link.label}</a></li>
+              {[
+                { label: "Home", href: "/" },
+                { label: "All Services", href: "/services" },
+                { label: "All Brands", href: "/brands" },
+                { label: "Service Areas", href: "/areas" },
+                { label: "About Us", href: "/about" },
+                { label: "Contact Us", href: "/contact" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href}>
+                    <span className="text-[#EAF7FF]/50 text-sm hover:text-[#00C2FF] transition-colors cursor-pointer">{link.label}</span>
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
@@ -48,11 +73,11 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-[#00C2FF] mt-0.5 shrink-0" />
-                <a href="mailto:info@devicesdoctor.com" className="text-[#EAF7FF]/70 text-sm hover:text-[#00C2FF] transition-colors">info@devicesdoctor.com</a>
+                <a href="mailto:support@devicesdoctor.in" className="text-[#EAF7FF]/70 text-sm hover:text-[#00C2FF] transition-colors">support@devicesdoctor.in</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#00C2FF] mt-0.5 shrink-0" />
-                <span className="text-[#EAF7FF]/50 text-sm">Surat, Mumbai, Delhi, Gorakhpur & more</span>
+                <span className="text-[#EAF7FF]/50 text-sm">Mumbai, Thane, Navi Mumbai & more</span>
               </li>
             </ul>
             <div className="flex gap-3 mt-4">

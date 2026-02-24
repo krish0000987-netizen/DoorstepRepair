@@ -87,6 +87,11 @@ export default {
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
       },
+      backgroundImage: {
+        'hero-gradient': 'linear-gradient(135deg, #0A1A3F 0%, #0d2255 50%, #0A1A3F 100%)',
+        'neon-glow': 'radial-gradient(ellipse at center, rgba(0,194,255,0.15) 0%, transparent 70%)',
+        'card-gradient': 'linear-gradient(145deg, rgba(13,34,85,0.8) 0%, rgba(10,26,63,0.9) 100%)',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

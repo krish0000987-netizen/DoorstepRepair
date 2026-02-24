@@ -74,6 +74,30 @@ export const insertCitySchema = createInsertSchema(cities).omit({ id: true });
 export type InsertCity = z.infer<typeof insertCitySchema>;
 export type City = typeof cities.$inferSelect;
 
+export const adminUsers = pgTable("admin_users", {
+  id: serial("id").primaryKey(),
+  username: varchar("username", { length: 100 }).notNull().unique(),
+  passwordHash: text("password_hash").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertAdminUserSchema = createInsertSchema(adminUsers).omit({ id: true, createdAt: true });
+export type InsertAdminUser = z.infer<typeof insertAdminUserSchema>;
+export type AdminUser = typeof adminUsers.$inferSelect;
+
+export const siteContent = pgTable("site_content", {
+  id: serial("id").primaryKey(),
+  section: varchar("section", { length: 100 }).notNull(),
+  key: varchar("key", { length: 200 }).notNull(),
+  value: text("value").notNull(),
+  contentType: varchar("content_type", { length: 20 }).notNull().default("text"),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const insertSiteContentSchema = createInsertSchema(siteContent).omit({ id: true, updatedAt: true });
+export type InsertSiteContent = z.infer<typeof insertSiteContentSchema>;
+export type SiteContent = typeof siteContent.$inferSelect;
+
 export const bookingFormSchema = z.object({
   customerName: z.string().min(2, "Name is required"),
   phone: z.string().min(10, "Valid phone number required"),
@@ -90,3 +114,10 @@ export const bookingFormSchema = z.object({
 });
 
 export type BookingFormData = z.infer<typeof bookingFormSchema>;
+
+export const adminLoginSchema = z.object({
+  username: z.string().min(1, "Username is required"),
+  password: z.string().min(1, "Password is required"),
+});
+
+export type AdminLoginData = z.infer<typeof adminLoginSchema>;

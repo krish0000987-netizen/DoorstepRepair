@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useContent } from "@/hooks/use-content";
 
 export default function HeroSection() {
+  const { get } = useContent("hero");
+  const { get: getCta } = useContent("cta");
+
   return (
     <section id="home" className="relative min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20" data-testid="section-hero">
       <div className="absolute inset-0 bg-[#0A1A3F]">
@@ -27,23 +31,23 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00C2FF]/30 bg-[#00C2FF]/10 mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-[#00FFE0] animate-pulse" />
-              <span className="text-[#00C2FF] text-sm font-medium">Fast & Reliable Service</span>
+              <span className="text-[#00C2FF] text-sm font-medium">{get("badge", "Fast & Reliable Service")}</span>
             </motion.div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4">
-              <span className="text-white">DEVICES</span>
+              <span className="text-white">{get("title_line1", "DEVICES")}</span>
               <br />
-              <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">DOCTOR</span>
+              <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">{get("title_line2", "DOCTOR")}</span>
             </h1>
 
             <p className="text-[#EAF7FF]/80 text-base sm:text-xl font-medium mb-2">
-              Your Device Health Experts
+              {get("subtitle", "Your Device Health Experts")}
             </p>
             <p className="text-[#00C2FF] text-lg sm:text-2xl font-bold mb-2">
-              30 Minutes Doorstep Repair Service
+              {get("highlight", "30 Minutes Doorstep Repair Service")}
             </p>
             <p className="text-[#EAF7FF]/60 text-sm sm:text-lg mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
-              We Repair Onsite Within 30 Minutes! All Mobile Brands, Laptops, Tablets & Smart Watches.
+              {get("description", "We Repair Onsite Within 30 Minutes! All Mobile Brands, Laptops, Tablets & Smart Watches.")}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -53,11 +57,11 @@ export default function HeroSection() {
                   className="w-full sm:w-auto bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] text-[#0A1A3F] font-bold text-base px-8 shadow-[0_0_30px_rgba(0,194,255,0.3)] no-default-hover-elevate no-default-active-elevate"
                   data-testid="button-hero-book"
                 >
-                  Book Repair Now <ArrowRight className="w-5 h-5 ml-2" />
+                  {get("button_primary", "Book Repair Now")} <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </a>
               <a
-                href="https://wa.me/918169701980?text=Hi%2C%20I%20need%20a%20device%20repair"
+                href={`https://wa.me/${getCta("whatsapp_number", "918169701980")}?text=Hi%2C%20I%20need%20a%20device%20repair`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -67,7 +71,7 @@ export default function HeroSection() {
                   className="w-full sm:w-auto border-[#00FFE0]/40 text-[#00FFE0] font-semibold text-base px-8 bg-[#00FFE0]/5 no-default-hover-elevate no-default-active-elevate"
                   data-testid="button-hero-whatsapp"
                 >
-                  <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp Booking
+                  <MessageCircle className="w-5 h-5 mr-2" /> {get("button_secondary", "WhatsApp Booking")}
                 </Button>
               </a>
             </div>
@@ -84,7 +88,7 @@ export default function HeroSection() {
                     />
                   ))}
                 </div>
-                <span className="text-[#EAF7FF]/70 text-xs sm:text-sm">50+ Certified Technicians</span>
+                <span className="text-[#EAF7FF]/70 text-xs sm:text-sm">{get("technician_count", "50+ Certified Technicians")}</span>
               </div>
               <div className="hidden sm:flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
@@ -92,7 +96,7 @@ export default function HeroSection() {
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
-                <span className="text-[#EAF7FF]/70 text-sm ml-1">4.9/5 Rating</span>
+                <span className="text-[#EAF7FF]/70 text-sm ml-1">{get("rating", "4.9/5 Rating")}</span>
               </div>
             </div>
           </motion.div>
@@ -108,7 +112,7 @@ export default function HeroSection() {
               <div className="absolute w-64 h-64 rounded-full border border-[#00FFE0]/10 animate-[spin_15s_linear_infinite_reverse]" />
             </div>
             <img
-              src="/images/hero-device.png"
+              src={get("hero_image", "/images/hero-device.png")}
               alt="Device repair"
               className="relative z-10 w-80 h-auto drop-shadow-[0_0_40px_rgba(0,194,255,0.3)]"
             />

@@ -12,6 +12,18 @@ import ServicesListingPage from "@/pages/services-listing-page";
 import BrandsListingPage from "@/pages/brands-listing-page";
 import AboutPage from "@/pages/about-page";
 import ContactPage from "@/pages/contact-page";
+import AdminLogin from "@/pages/admin/admin-login";
+import AdminLayout from "@/pages/admin/admin-layout";
+import AdminDashboard from "@/pages/admin/admin-dashboard";
+import AdminHero from "@/pages/admin/admin-hero";
+import AdminCTA from "@/pages/admin/admin-cta";
+import AdminAbout from "@/pages/admin/admin-about";
+import AdminContact from "@/pages/admin/admin-contact";
+import AdminFooter from "@/pages/admin/admin-footer";
+import AdminServices from "@/pages/admin/admin-services";
+import AdminReviews from "@/pages/admin/admin-reviews";
+import AdminBookings from "@/pages/admin/admin-bookings";
+import AdminImages from "@/pages/admin/admin-images";
 
 function Router() {
   return (
@@ -24,6 +36,17 @@ function Router() {
       <Route path="/contact" component={ContactPage} />
       <Route path="/brands/:slug" component={BrandPage} />
       <Route path="/services/:slug" component={ServicePage} />
+      <Route path="/admin/login" component={AdminLogin} />
+      <Route path="/admin/hero">{() => <AdminLayout><AdminHero /></AdminLayout>}</Route>
+      <Route path="/admin/cta">{() => <AdminLayout><AdminCTA /></AdminLayout>}</Route>
+      <Route path="/admin/about">{() => <AdminLayout><AdminAbout /></AdminLayout>}</Route>
+      <Route path="/admin/contact">{() => <AdminLayout><AdminContact /></AdminLayout>}</Route>
+      <Route path="/admin/footer">{() => <AdminLayout><AdminFooter /></AdminLayout>}</Route>
+      <Route path="/admin/services">{() => <AdminLayout><AdminServices /></AdminLayout>}</Route>
+      <Route path="/admin/reviews">{() => <AdminLayout><AdminReviews /></AdminLayout>}</Route>
+      <Route path="/admin/bookings">{() => <AdminLayout><AdminBookings /></AdminLayout>}</Route>
+      <Route path="/admin/images">{() => <AdminLayout><AdminImages /></AdminLayout>}</Route>
+      <Route path="/admin">{() => <AdminLayout><AdminDashboard /></AdminLayout>}</Route>
       <Route component={NotFound} />
     </Switch>
   );

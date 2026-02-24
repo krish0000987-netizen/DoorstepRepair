@@ -3,6 +3,7 @@ import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
+import { useContent } from "@/hooks/use-content";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -16,6 +17,11 @@ const navLinks = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [location] = useLocation();
+  const { get } = useContent("cta");
+
+  const phone = get("phone", "8169701980");
+  const phoneDisplay = get("phone_display", "8169-701980");
+  const whatsapp = get("whatsapp_number", "918169701980");
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A1A3F]/95 backdrop-blur-md border-b border-[#00C2FF]/20" data-testid="navbar">
@@ -57,11 +63,11 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <a href="tel:8169701980" className="flex items-center gap-2 text-[#00FFE0] text-sm font-semibold" data-testid="link-call">
+            <a href={`tel:${phone}`} className="flex items-center gap-2 text-[#00FFE0] text-sm font-semibold" data-testid="link-call">
               <Phone className="w-4 h-4" />
-              8169-701980
+              {phoneDisplay}
             </a>
-            <a href="https://wa.me/918169701980?text=Hi%2C%20I%20need%20a%20device%20repair" target="_blank" rel="noopener noreferrer">
+            <a href={`https://wa.me/${whatsapp}?text=Hi%2C%20I%20need%20a%20device%20repair`} target="_blank" rel="noopener noreferrer">
               <Button className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] text-[#0A1A3F] font-semibold text-sm no-default-hover-elevate no-default-active-elevate" data-testid="button-book-now-nav">
                 Book Repair
               </Button>
@@ -104,10 +110,10 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-2 flex flex-col gap-2">
-                <a href="tel:8169701980" className="flex items-center justify-center gap-2 text-[#00FFE0] font-semibold py-3">
-                  <Phone className="w-4 h-4" /> Call Now: 8169-701980
+                <a href={`tel:${phone}`} className="flex items-center justify-center gap-2 text-[#00FFE0] font-semibold py-3">
+                  <Phone className="w-4 h-4" /> Call Now: {phoneDisplay}
                 </a>
-                <a href="https://wa.me/918169701980?text=Hi%2C%20I%20need%20a%20device%20repair" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
+                <a href={`https://wa.me/${whatsapp}?text=Hi%2C%20I%20need%20a%20device%20repair`} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
                   <Button className="w-full bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] text-[#0A1A3F] font-semibold no-default-hover-elevate no-default-active-elevate">
                     Book Repair Now
                   </Button>

@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useContent } from "@/hooks/use-content";
 
 export default function CTASection() {
+  const { get } = useContent("cta");
+
   return (
     <section className="relative py-12 sm:py-20 bg-[#0A1A3F] overflow-hidden" data-testid="section-cta">
       <div className="absolute inset-0">
@@ -22,19 +25,19 @@ export default function CTASection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Need Help? <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">Call Now!</span>
+            {get("title", "Need Help?")} <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">{get("title_highlight", "Call Now!")}</span>
           </h2>
 
           <a
-            href="tel:8169701980"
+            href={`tel:${get("phone", "8169701980")}`}
             className="inline-flex items-center gap-2 sm:gap-3 text-2xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 hover:text-[#00C2FF] transition-colors"
             data-testid="link-cta-phone"
           >
             <Phone className="w-6 h-6 sm:w-10 sm:h-10 text-[#00C2FF]" />
-            8169-701980
+            {get("phone_display", "8169-701980")}
           </a>
 
-          <p className="text-[#00C2FF] text-lg font-semibold mt-2 mb-8">Fast &bull; Reliable &bull; Trusted</p>
+          <p className="text-[#00C2FF] text-lg font-semibold mt-2 mb-8">{get("tagline", "Fast • Reliable • Trusted")}</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#booking">
@@ -47,7 +50,7 @@ export default function CTASection() {
               </Button>
             </a>
             <a
-              href="https://wa.me/918169701980?text=Hi%2C%20I%20need%20a%20device%20repair"
+              href={`https://wa.me/${get("whatsapp_number", "918169701980")}?text=Hi%2C%20I%20need%20a%20device%20repair`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -65,15 +68,15 @@ export default function CTASection() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
             <div className="flex items-center gap-2 text-[#EAF7FF]/50 text-sm">
               <div className="w-2 h-2 rounded-full bg-[#00FFE0]" />
-              Certified Technicians
+              {get("feature_1", "Certified Technicians")}
             </div>
             <div className="flex items-center gap-2 text-[#EAF7FF]/50 text-sm">
               <div className="w-2 h-2 rounded-full bg-[#00FFE0]" />
-              Genuine Parts
+              {get("feature_2", "Genuine Parts")}
             </div>
             <div className="flex items-center gap-2 text-[#EAF7FF]/50 text-sm">
               <div className="w-2 h-2 rounded-full bg-[#00FFE0]" />
-              90-Day Warranty
+              {get("feature_3", "90-Day Warranty")}
             </div>
           </div>
         </motion.div>

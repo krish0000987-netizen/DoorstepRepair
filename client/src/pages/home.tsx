@@ -3,6 +3,7 @@ import HeroSection from "@/components/hero-section";
 import SpecialitiesSection from "@/components/specialities-section";
 import ServicesSection from "@/components/services-section";
 import WhyChooseSection from "@/components/why-choose-section";
+import BrandsSection from "@/components/brands-section";
 import ReviewsSection from "@/components/reviews-section";
 import CitiesSection from "@/components/cities-section";
 import BookingSection from "@/components/booking-section";
@@ -17,6 +18,7 @@ export default function Home() {
       <HeroSection />
       <SpecialitiesSection />
       <ServicesSection />
+      <BrandsSection />
       <WhyChooseSection />
       <ReviewsSection />
       <BookingSection />

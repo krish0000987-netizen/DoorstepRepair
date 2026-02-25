@@ -66,7 +66,7 @@ client/           # Frontend React application
   src/
     components/   # Page sections and UI components
     components/ui/  # shadcn/ui component library
-    pages/        # Route pages (home, services-listing, brands-listing, areas, about, contact, brand-page, service-page, not-found)
+    pages/        # Route pages (home, services-listing, brands-listing, areas, about, contact, brand-page, service-page, privacy-policy, terms-conditions, not-found)
     hooks/        # Custom React hooks
     lib/          # Utilities and query client config
 server/           # Backend Express application

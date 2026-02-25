@@ -26,6 +26,8 @@ import AdminServices from "@/pages/admin/admin-services";
 import AdminReviews from "@/pages/admin/admin-reviews";
 import AdminBookings from "@/pages/admin/admin-bookings";
 import AdminImages from "@/pages/admin/admin-images";
+import AdminPrivacy from "@/pages/admin/admin-privacy";
+import AdminTerms from "@/pages/admin/admin-terms";
 
 function Router() {
   return (
@@ -50,6 +52,8 @@ function Router() {
       <Route path="/admin/reviews">{() => <AdminLayout><AdminReviews /></AdminLayout>}</Route>
       <Route path="/admin/bookings">{() => <AdminLayout><AdminBookings /></AdminLayout>}</Route>
       <Route path="/admin/images">{() => <AdminLayout><AdminImages /></AdminLayout>}</Route>
+      <Route path="/admin/privacy">{() => <AdminLayout><AdminPrivacy /></AdminLayout>}</Route>
+      <Route path="/admin/terms">{() => <AdminLayout><AdminTerms /></AdminLayout>}</Route>
       <Route path="/admin">{() => <AdminLayout><AdminDashboard /></AdminLayout>}</Route>
       <Route component={NotFound} />
     </Switch>

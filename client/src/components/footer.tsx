@@ -101,7 +101,15 @@ export default function Footer() {
 
         <div className="border-t border-[#00C2FF]/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[#EAF7FF]/30 text-xs">&copy; {new Date().getFullYear()} {get("copyright", "Devices Doctor. All rights reserved.")}</p>
-          <p className="text-[#EAF7FF]/30 text-xs">Powered by Growth Nations</p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy-policy">
+              <span className="text-[#EAF7FF]/30 text-xs hover:text-[#00C2FF] transition-colors cursor-pointer" data-testid="link-privacy-policy">Privacy Policy</span>
+            </Link>
+            <Link href="/terms-conditions">
+              <span className="text-[#EAF7FF]/30 text-xs hover:text-[#00C2FF] transition-colors cursor-pointer" data-testid="link-terms-conditions">Terms & Conditions</span>
+            </Link>
+            <p className="text-[#EAF7FF]/30 text-xs">Powered by Growth Nations</p>
+          </div>
         </div>
       </div>
     </footer>

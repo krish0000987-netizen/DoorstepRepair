@@ -12,6 +12,8 @@ import ServicesListingPage from "@/pages/services-listing-page";
 import BrandsListingPage from "@/pages/brands-listing-page";
 import AboutPage from "@/pages/about-page";
 import ContactPage from "@/pages/contact-page";
+import PrivacyPolicyPage from "@/pages/privacy-policy-page";
+import TermsConditionsPage from "@/pages/terms-conditions-page";
 import AdminLogin from "@/pages/admin/admin-login";
 import AdminLayout from "@/pages/admin/admin-layout";
 import AdminDashboard from "@/pages/admin/admin-dashboard";
@@ -34,6 +36,8 @@ function Router() {
       <Route path="/areas" component={AreasPage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />
+      <Route path="/privacy-policy" component={PrivacyPolicyPage} />
+      <Route path="/terms-conditions" component={TermsConditionsPage} />
       <Route path="/brands/:slug" component={BrandPage} />
       <Route path="/services/:slug" component={ServicePage} />
       <Route path="/admin/login" component={AdminLogin} />

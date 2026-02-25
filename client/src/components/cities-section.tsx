@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { Link } from "wouter";
-import { mumbaiAreas, regions } from "@/lib/areas-data";
+import { mumbaiAreas, regions, getAreasByRegion } from "@/lib/areas-data";
 
 export default function CitiesSection() {
-  const popularAreas = mumbaiAreas.filter((a) => a.popular);
-
   return (
     <section id="areas" className="relative py-12 sm:py-20 bg-[#0A1A3F]" data-testid="section-areas">
       <div className="absolute inset-0 bg-neon-glow opacity-15" />
@@ -22,24 +20,35 @@ export default function CitiesSection() {
             <span className="text-[#00C2FF] text-sm font-semibold tracking-widest uppercase">Service Areas</span>
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#00C2FF]" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Mumbai & Nearby Areas</h2>
-          <p className="text-[#EAF7FF]/60">Doorstep repair service across Mumbai, Thane, Navi Mumbai & surrounding regions</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+            Mumbai & <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">Nearby Areas</span>
+          </h2>
+          <p className="text-[#EAF7FF]/60 mb-2">Doorstep repair service across {mumbaiAreas.length}+ locations in Mumbai, Thane, Navi Mumbai & surrounding regions</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-          {popularAreas.slice(0, 18).map((area, index) => (
+        <div className="space-y-8">
+          {regions.map((region, ri) => (
             <motion.div
-              key={area.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              key={region}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.04, duration: 0.4 }}
-              className="group rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/50 to-[#0A1A3F]/70 p-4 text-center hover:border-[#00C2FF]/40 hover:shadow-[0_0_20px_rgba(0,194,255,0.1)] transition-all duration-300"
-              data-testid={`card-area-${index}`}
+              transition={{ delay: ri * 0.1, duration: 0.5 }}
+              className="rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/40 to-[#0A1A3F]/60 p-5 sm:p-6"
             >
-              <MapPin className="w-5 h-5 text-[#00C2FF] mx-auto mb-2 group-hover:text-[#00FFE0] transition-colors duration-300" />
-              <h3 className="text-white font-bold text-sm">{area.name}</h3>
-              <p className="text-[#EAF7FF]/40 text-xs mt-0.5">{area.region}</p>
+              <div className="flex items-center gap-2 mb-3">
+                <MapPin className="w-4 h-4 text-[#00C2FF]" />
+                <h3 className="text-white font-bold text-base">{region}</h3>
+                <span className="text-[#EAF7FF]/30 text-xs">({getAreasByRegion(region).length} areas)</span>
+              </div>
+              <p className="text-[#EAF7FF]/60 text-sm leading-relaxed">
+                {getAreasByRegion(region).map((area, i) => (
+                  <span key={area.name}>
+                    <span className={area.popular ? "text-[#00C2FF] font-medium" : ""}>{area.name}</span>
+                    {i < getAreasByRegion(region).length - 1 && <span className="text-[#EAF7FF]/30"> • </span>}
+                  </span>
+                ))}
+              </p>
             </motion.div>
           ))}
         </div>

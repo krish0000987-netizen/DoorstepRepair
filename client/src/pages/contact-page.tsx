@@ -27,8 +27,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email",
     desc: "Send us an email",
-    value: "support@devicesdoctor.in",
-    href: "mailto:support@devicesdoctor.in",
+    value: "devicesdoctor1993@gmail.com",
+    href: "mailto:devicesdoctor1993@gmail.com",
     action: "Send Email",
   },
 ];

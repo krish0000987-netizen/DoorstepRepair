@@ -79,8 +79,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-[#00C2FF] mt-0.5 shrink-0" />
-                <a href={`mailto:${get("email", "support@devicesdoctor.in")}`} className="text-[#EAF7FF]/70 text-sm hover:text-[#00C2FF] transition-colors">
-                  {get("email", "support@devicesdoctor.in")}
+                <a href={`mailto:${get("email", "devicesdoctor1993@gmail.com")}`} className="text-[#EAF7FF]/70 text-sm hover:text-[#00C2FF] transition-colors">
+                  {get("email", "devicesdoctor1993@gmail.com")}
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -89,10 +89,10 @@ export default function Footer() {
               </li>
             </ul>
             <div className="flex gap-3 mt-4">
-              <a href={get("instagram", "https://instagram.com/devicedoctor1990")} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-instagram">
+              <a href={get("instagram", "https://www.instagram.com/devicesdoctor1993?igsh=aW9tY3hvMXRsdzF2")} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-instagram">
                 <SiInstagram className="w-4 h-4" />
               </a>
-              <a href={get("facebook", "https://facebook.com/share/17wypKXAtc/")} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-facebook">
+              <a href={get("facebook", "https://www.facebook.com/share/17wypKXAtc/")} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-facebook">
                 <SiFacebook className="w-4 h-4" />
               </a>
             </div>

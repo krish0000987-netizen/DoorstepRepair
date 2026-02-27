@@ -7,7 +7,7 @@ const reasons = [
   { icon: UserCheck, title: "Professional Technicians", desc: "Certified and experienced technicians" },
   { icon: Shield, title: "Genuine Quality Parts", desc: "We use only genuine OEM quality parts" },
   { icon: ThumbsUp, title: "Trusted Service", desc: "No hidden charges, complete transparency on every repair" },
-  { icon: Award, title: "Service Warranty", desc: "6-month warranty on all repairs" },
+  { icon: Award, title: "Service Warranty", desc: "3 to 6 months warranty on all repairs" },
 ];
 
 export default function WhyChooseSection() {

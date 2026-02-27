@@ -23,7 +23,7 @@ export default function ServicesListingPage() {
               Our <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] bg-clip-text text-transparent">Services</span>
             </h1>
             <p className="text-[#EAF7FF]/70 text-lg max-w-2xl mx-auto">
-              Professional doorstep repair services for all your devices. Expert technicians, genuine parts, 6-month warranty.
+              Professional doorstep repair services for all your devices. Expert technicians, genuine parts, 3 to 6 months warranty.
             </p>
           </motion.div>
         </div>

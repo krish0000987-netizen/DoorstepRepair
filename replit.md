@@ -2,7 +2,7 @@
 
 ## Overview
 
-Devices Doctor is a doorstep device repair booking platform targeting Mumbai and nearby areas. Customers can browse repair services (screen replacement, battery, charging, software, water damage, camera/speaker, motherboard repairing, iPhone back glass, Android back panel, diagnosis), read reviews, and book a technician visit. The platform promises 30-minute doorstep repair with genuine parts and 6-month warranty. Prices are NOT shown on the frontend.
+Devices Doctor is a doorstep device repair booking platform targeting Mumbai and nearby areas. Customers can browse repair services (screen replacement, battery, charging, software, water damage, camera/speaker, motherboard repairing, iPhone back glass, Android back panel, diagnosis), read reviews, and book a technician visit. The platform promises 30-minute doorstep repair with genuine parts and 3 to 6 months warranty. Prices are NOT shown on the frontend.
 
 The application is a multi-page website with a full-stack architecture: React frontend, Express backend, and PostgreSQL database. Pages include Home, Services listing, Brands listing, Areas, About Us, Contact, Privacy Policy, Terms & Conditions, Copyright, individual Brand pages (17 brands), and individual Service pages (10 services). A floating WhatsApp button provides quick customer contact. The booking form uses manual text input for location (no dropdown). The diagnosis service page includes a note about free diagnosis when the customer proceeds with repair.
 

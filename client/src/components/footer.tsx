@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-[#EAF7FF]/50 text-sm leading-relaxed">
-              {get("company_description", "Fast & Trusted 30 Minutes Doorstep Repair Service for all your devices. Genuine parts with 6-month warranty.")}
+              {get("company_description", "Fast & Trusted 30 Minutes Doorstep Repair Service for all your devices. Genuine parts with 3 to 6 months warranty.")}
             </p>
           </div>
 

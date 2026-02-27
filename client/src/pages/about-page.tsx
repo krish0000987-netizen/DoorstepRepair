@@ -9,12 +9,12 @@ const stats = [
   { value: "500+", label: "Happy Customers" },
   { value: "50+", label: "Expert Technicians" },
   { value: "30 Min", label: "Avg Repair Time" },
-  { value: "6 Months", label: "Warranty Period" },
+  { value: "3-6 Months", label: "Warranty Period" },
 ];
 
 const values = [
   { icon: Clock, title: "Speed", description: "We repair your device at your doorstep within 30 minutes. No waiting, no shop visits." },
-  { icon: Shield, title: "Trust", description: "All repairs backed by 6-month warranty. We use genuine quality parts certified for performance." },
+  { icon: Shield, title: "Trust", description: "All repairs backed by 3 to 6 months warranty. We use genuine quality parts certified for performance." },
   { icon: CheckCircle2, title: "Quality", description: "Our certified technicians are trained professionals who handle your device with expert care." },
   { icon: Users, title: "Customer First", description: "Complete transparency with no hidden charges. We explain every repair before we start." },
   { icon: Award, title: "Experience", description: "Years of experience repairing all major brands - Apple, Samsung, Xiaomi, OnePlus and more." },
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 That's why we bring our expert technicians directly to your doorstep. Whether you're at home, office, or anywhere in Mumbai, we come to you and fix your device within 30 minutes.
               </p>
               <p>
-                Our team of 50+ certified technicians is trained to handle all major brands and all types of repairs. We use genuine quality parts and provide a 6-month warranty on every repair.
+                Our team of 50+ certified technicians is trained to handle all major brands and all types of repairs. We use genuine quality parts and provide a 3 to 6 months warranty on every repair.
               </p>
             </div>
           </motion.div>

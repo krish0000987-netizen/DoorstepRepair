@@ -78,7 +78,7 @@ export async function seedDatabase() {
       { section: "cta", key: "whatsapp_number", value: "918169701980" },
       { section: "cta", key: "feature_1", value: "Certified Technicians" },
       { section: "cta", key: "feature_2", value: "Genuine Parts" },
-      { section: "cta", key: "feature_3", value: "6-Month Warranty" },
+      { section: "cta", key: "feature_3", value: "3 to 6 Months Warranty" },
 
       { section: "about", key: "title", value: "About" },
       { section: "about", key: "title_highlight", value: "Devices Doctor" },
@@ -128,7 +128,7 @@ export async function seedDatabase() {
       { section: "why_choose", key: "reason_1_title", value: "30-Min Doorstep Service" },
       { section: "why_choose", key: "reason_1_description", value: "Our technician arrives at your location and completes the repair in just 30 minutes." },
       { section: "why_choose", key: "reason_2_title", value: "Genuine Parts & Warranty" },
-      { section: "why_choose", key: "reason_2_description", value: "We use only genuine quality parts and provide 6-month warranty on all repairs." },
+      { section: "why_choose", key: "reason_2_description", value: "We use only genuine quality parts and provide 3 to 6 months warranty on all repairs." },
       { section: "why_choose", key: "reason_3_title", value: "Certified Technicians" },
       { section: "why_choose", key: "reason_3_description", value: "Our expert technicians are trained and certified to handle all device repairs." },
       { section: "why_choose", key: "reason_4_title", value: "No Hidden Charges" },

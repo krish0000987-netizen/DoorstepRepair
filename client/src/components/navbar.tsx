@@ -14,6 +14,7 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms", href: "/terms-conditions" },
+  { label: "Copyright", href: "/copyright" },
 ];
 
 export default function Navbar() {

@@ -20,7 +20,7 @@ const slides = [
     title2: "SCREEN?",
     subtitle: "Expert Screen Replacement",
     highlight: "Original Quality Display at Your Doorstep",
-    description: "Professional screen replacement for all brands — iPhone, Samsung, OnePlus, Xiaomi & more. Genuine parts with 90-day warranty.",
+    description: "Professional screen replacement for all brands — iPhone, Samsung, OnePlus, Xiaomi & more. Genuine parts with 6-month warranty.",
     image: "/images/hero-device.png",
   },
   {

@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 
-import deviceMobilePath from "@assets/device-mobile.png";
+import deviceIphone16ProPath from "@assets/device-iphone16pro.png";
 import deviceSmartWatchPath from "@assets/device-smartwatch.png";
-import deviceLaptopPath from "@assets/device-laptop.png";
-import deviceIpadPath from "@assets/device-ipad.png";
+import deviceMacbookPath from "@assets/device-macbook.png";
+import deviceIpadProPath from "@assets/device-ipad-pro.png";
 
 const specialities = [
-  { image: deviceMobilePath, label: "All Mobile Brands", desc: "iPhone, Samsung, OnePlus, Xiaomi & more" },
+  { image: deviceIphone16ProPath, label: "All Mobile Brands", desc: "iPhone, Samsung, OnePlus, Xiaomi & more" },
   { image: deviceSmartWatchPath, label: "Smart Watches", desc: "Apple Watch, Samsung Galaxy & more" },
-  { image: deviceLaptopPath, label: "Laptops", desc: "HP, Dell, Lenovo, MacBook & more" },
-  { image: deviceIpadPath, label: "Tablets & iPads", desc: "iPad, Samsung Tab, Surface & more" },
+  { image: deviceMacbookPath, label: "Laptops", desc: "HP, Dell, Lenovo, MacBook & more" },
+  { image: deviceIpadProPath, label: "Tablets & iPads", desc: "iPad, Samsung Tab, Surface & more" },
 ];
 
 export default function SpecialitiesSection() {

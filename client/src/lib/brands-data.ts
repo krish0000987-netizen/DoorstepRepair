@@ -21,7 +21,7 @@ export const allBrands: Brand[] = [
     logo: "/images/logos/apple.png",
     heroImage: "/images/brand-apple.png",
     tagline: "Expert Apple iPhone & iPad Repair",
-    description: "Certified repair for all Apple devices including iPhone, iPad, MacBook & Apple Watch. We use genuine quality parts with 90-day warranty.",
+    description: "Certified repair for all Apple devices including iPhone, iPad, MacBook & Apple Watch. We use genuine quality parts with 6-month warranty.",
     popularModels: ["iPhone 16 Pro Max", "iPhone 16 Pro", "iPhone 16", "iPhone 15 Pro Max", "iPhone 15", "iPhone 14", "iPhone 13", "iPhone SE", "iPad Pro", "iPad Air"],
     problems: [
       { name: "Screen Replacement", description: "Original quality OLED/LCD display replacement" },
@@ -317,11 +317,11 @@ export const serviceDetails = [
     icon: "Monitor",
     heroImage: "/images/service-screen.png",
     description: "Professional screen replacement service for all devices. We use original quality OLED, AMOLED, and LCD displays to restore your device to perfect condition.",
-    features: ["Original quality displays", "Same-day repair", "30-minute doorstep service", "90-day warranty", "All brands covered"],
+    features: ["Original quality displays", "Same-day repair", "30-minute doorstep service", "6-month warranty", "All brands covered"],
     faq: [
       { q: "How long does screen replacement take?", a: "Most screen replacements are completed within 20-30 minutes at your doorstep." },
       { q: "Do you use original screens?", a: "We use OEM quality screens that match the original display quality and color accuracy." },
-      { q: "Is there a warranty on screen replacement?", a: "Yes, all screen replacements come with a 90-day warranty covering defects." },
+      { q: "Is there a warranty on screen replacement?", a: "Yes, all screen replacements come with a 6-month warranty covering defects." },
     ],
   },
   {
@@ -330,7 +330,7 @@ export const serviceDetails = [
     icon: "Battery",
     heroImage: "/images/service-battery.png",
     description: "Genuine battery replacement service to restore your device's battery life. We use certified batteries that meet OEM specifications.",
-    features: ["Genuine certified batteries", "Battery health check", "30-minute service", "90-day warranty", "All models supported"],
+    features: ["Genuine certified batteries", "Battery health check", "30-minute service", "6-month warranty", "All models supported"],
     faq: [
       { q: "How do I know if I need a battery replacement?", a: "If your battery drains quickly, device shuts down unexpectedly, or battery is swollen, it needs replacement." },
       { q: "Will battery replacement affect my data?", a: "No, battery replacement does not affect your data. All your files and apps remain intact." },
@@ -421,7 +421,7 @@ export const serviceDetails = [
     icon: "Tablet",
     heroImage: svcBackpanelImg,
     description: "Replace your cracked or damaged Android back panel with a brand new OEM quality replacement. We cover Samsung, OnePlus, Xiaomi, Vivo, Oppo and all major brands.",
-    features: ["All Android brands", "OEM quality panels", "Color matching available", "Quick installation", "90-day warranty"],
+    features: ["All Android brands", "OEM quality panels", "Color matching available", "Quick installation", "6-month warranty"],
     faq: [
       { q: "Which Android brands do you cover for back panel replacement?", a: "We cover Samsung, OnePlus, Xiaomi, Vivo, Oppo, Realme, and all other major Android brands." },
       { q: "How long does Android back panel replacement take?", a: "Most back panel replacements are completed within 20-30 minutes." },

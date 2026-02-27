@@ -174,7 +174,7 @@ export default function BrandPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { icon: Clock, title: "30 Min Service", desc: "Doorstep repair within 30 minutes" },
-              { icon: Shield, title: "90-Day Warranty", desc: "All repairs backed by warranty" },
+              { icon: Shield, title: "6-Month Warranty", desc: "All repairs backed by warranty" },
               { icon: CheckCircle2, title: "Genuine Parts", desc: "OEM quality certified parts" },
               { icon: Star, title: "4.9 Rating", desc: "500+ happy customers" },
             ].map((item, i) => (

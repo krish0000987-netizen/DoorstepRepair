@@ -31,18 +31,18 @@ export default function ServicesListingPage() {
 
       <section className="py-10 sm:py-16 bg-[#071533]" data-testid="section-services-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
             {serviceDetails.map((service, index) => (
               <Link key={service.slug} href={`/services/${service.slug}`}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: index * 0.06, duration: 0.5 }}
                   className="group relative rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/60 to-[#0A1A3F]/80 overflow-hidden transition-all duration-300 hover:border-[#00C2FF]/40 hover:shadow-[0_0_25px_rgba(0,194,255,0.1)] cursor-pointer h-full"
                   data-testid={`card-service-${service.slug}`}
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-32 sm:h-40 lg:h-44 overflow-hidden">
                     <img
                       src={service.heroImage}
                       alt={service.name}
@@ -50,15 +50,15 @@ export default function ServicesListingPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A3F] via-[#0A1A3F]/60 to-[#0A1A3F]/20" />
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-white font-bold text-xl mb-2 flex items-center gap-2">
+                  <div className="p-3 sm:p-4 lg:p-5">
+                    <h3 className="text-white font-bold text-sm sm:text-base lg:text-lg mb-1 flex items-center gap-1">
                       {service.name}
-                      <ChevronRight className="w-5 h-5 text-[#00C2FF]/50 group-hover:text-[#00C2FF] group-hover:translate-x-1 transition-all duration-300" />
+                      <ChevronRight className="w-4 h-4 text-[#00C2FF]/50 group-hover:text-[#00C2FF] group-hover:translate-x-1 transition-all duration-300 shrink-0" />
                     </h3>
-                    <p className="text-[#EAF7FF]/50 text-sm leading-relaxed mb-4">{service.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {service.features.slice(0, 3).map((f) => (
-                        <span key={f} className="px-2 py-1 rounded-md bg-[#00C2FF]/10 border border-[#00C2FF]/20 text-[#00C2FF] text-xs">
+                    <p className="text-[#EAF7FF]/50 text-xs sm:text-sm leading-relaxed mb-3 line-clamp-2">{service.description}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {service.features.slice(0, 2).map((f) => (
+                        <span key={f} className="px-2 py-0.5 rounded-md bg-[#00C2FF]/10 border border-[#00C2FF]/20 text-[#00C2FF] text-[10px] sm:text-xs">
                           {f}
                         </span>
                       ))}

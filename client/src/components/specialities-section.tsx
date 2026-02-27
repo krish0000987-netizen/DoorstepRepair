@@ -32,7 +32,7 @@ export default function SpecialitiesSection() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white">Devices We Repair</h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
           {specialities.map((item, index) => (
             <motion.div
               key={item.label}
@@ -43,7 +43,7 @@ export default function SpecialitiesSection() {
               className="group relative rounded-xl border border-[#00C2FF]/20 bg-gradient-to-br from-[#0d2255]/80 to-[#0A1A3F]/90 overflow-hidden transition-all duration-300 hover:border-[#00C2FF]/50 hover:shadow-[0_0_30px_rgba(0,194,255,0.15)]"
               data-testid={`card-speciality-${index}`}
             >
-              <div className="relative h-40 sm:h-48 overflow-hidden">
+              <div className="relative h-36 sm:h-44 lg:h-48 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.label}
@@ -51,9 +51,9 @@ export default function SpecialitiesSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A3F] via-[#0A1A3F]/60 to-transparent" />
               </div>
-              <div className="relative z-10 p-4 sm:p-5 -mt-6">
-                <h3 className="text-white font-bold text-base sm:text-lg mb-1">{item.label}</h3>
-                <p className="text-[#EAF7FF]/50 text-xs sm:text-sm">{item.desc}</p>
+              <div className="relative z-10 p-3 sm:p-4 lg:p-5 -mt-6">
+                <h3 className="text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 sm:mb-1">{item.label}</h3>
+                <p className="text-[#EAF7FF]/50 text-[11px] sm:text-xs lg:text-sm">{item.desc}</p>
               </div>
             </motion.div>
           ))}

@@ -17,10 +17,10 @@ const brands: Record<string, string[]> = {
   "Smart Watch": ["Apple Watch", "Samsung Galaxy Watch", "Noise", "boAt", "Other"],
 };
 const problems: Record<string, string[]> = {
-  "Mobile Phone": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Camera Repair", "Speaker / Mic Issue", "Water Damage", "Software Issue", "Motherboard Repairing", "Back Glass / Back Panel", "Diagnosis"],
-  "Laptop": ["Screen Replacement", "Battery Replacement", "Keyboard Replacement", "Hinge Repair", "Motherboard Repair", "Software / OS Issue", "Diagnosis"],
-  "Tablet / iPad": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Software Issue", "Back Panel", "Diagnosis"],
-  "Smart Watch": ["Screen Replacement", "Battery Replacement", "Band Replacement", "Software Issue", "Diagnosis"],
+  "Mobile Phone": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Camera Repair", "Speaker / Mic Issue", "Water Damage", "Software Issue", "Motherboard Repairing", "Back Glass / Back Panel", "Diagnosis", "Other"],
+  "Laptop": ["Screen Replacement", "Battery Replacement", "Keyboard Replacement", "Hinge Repair", "Motherboard Repair", "Software / OS Issue", "Diagnosis", "Other"],
+  "Tablet / iPad": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Software Issue", "Back Panel", "Diagnosis", "Other"],
+  "Smart Watch": ["Screen Replacement", "Battery Replacement", "Band Replacement", "Software Issue", "Diagnosis", "Other"],
 };
 const timeSlots = ["9:00 AM - 11:00 AM", "11:00 AM - 1:00 PM", "1:00 PM - 3:00 PM", "3:00 PM - 5:00 PM", "5:00 PM - 7:00 PM"];
 

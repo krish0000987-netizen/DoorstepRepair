@@ -40,18 +40,18 @@ export default function ServicesSection() {
           <p className="text-[#EAF7FF]/60 max-w-2xl mx-auto">Professional repair services for all your devices with genuine parts and warranty</p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
           {services.map((service, index) => (
             <Link key={service.name} href={`/services/${service.slug}`}>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08, duration: 0.5 }}
+                transition={{ delay: index * 0.06, duration: 0.5 }}
                 className="group relative rounded-xl border border-[#00C2FF]/15 bg-gradient-to-br from-[#0d2255]/60 to-[#0A1A3F]/80 overflow-hidden transition-all duration-300 hover:border-[#00C2FF]/40 hover:shadow-[0_0_25px_rgba(0,194,255,0.1)] cursor-pointer h-full"
                 data-testid={`card-service-${index}`}
               >
-                <div className="relative h-40 overflow-hidden">
+                <div className="relative h-28 sm:h-32 lg:h-36 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.name}
@@ -59,12 +59,12 @@ export default function ServicesSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A3F] via-[#0A1A3F]/70 to-[#0A1A3F]/20" />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-white font-bold text-lg mb-1 flex items-center gap-1">
+                <div className="p-3 sm:p-4">
+                  <h3 className="text-white font-bold text-sm sm:text-base mb-1 flex items-center gap-1">
                     {service.name}
-                    <ChevronRight className="w-4 h-4 text-[#00C2FF]/50 group-hover:text-[#00C2FF] group-hover:translate-x-1 transition-all duration-300" />
+                    <ChevronRight className="w-3.5 h-3.5 text-[#00C2FF]/50 group-hover:text-[#00C2FF] group-hover:translate-x-1 transition-all duration-300 shrink-0" />
                   </h3>
-                  <p className="text-[#EAF7FF]/50 text-sm leading-relaxed">{service.desc}</p>
+                  <p className="text-[#EAF7FF]/50 text-xs sm:text-sm leading-relaxed line-clamp-2">{service.desc}</p>
                 </div>
               </motion.div>
             </Link>

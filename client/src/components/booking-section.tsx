@@ -8,7 +8,6 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { queryClient } from "@/lib/queryClient";
-import { mumbaiAreas } from "@/lib/areas-data";
 
 const deviceTypes = ["Mobile Phone", "Laptop", "Tablet / iPad", "Smart Watch"];
 const brands: Record<string, string[]> = {
@@ -18,10 +17,10 @@ const brands: Record<string, string[]> = {
   "Smart Watch": ["Apple Watch", "Samsung Galaxy Watch", "Noise", "boAt", "Other"],
 };
 const problems: Record<string, string[]> = {
-  "Mobile Phone": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Camera Repair", "Speaker / Mic Issue", "Water Damage", "Software Issue"],
-  "Laptop": ["Screen Replacement", "Battery Replacement", "Keyboard Replacement", "Hinge Repair", "Motherboard Repair", "Software / OS Issue"],
-  "Tablet / iPad": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Software Issue"],
-  "Smart Watch": ["Screen Replacement", "Battery Replacement", "Band Replacement", "Software Issue"],
+  "Mobile Phone": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Camera Repair", "Speaker / Mic Issue", "Water Damage", "Software Issue", "Motherboard Repairing", "Back Glass / Back Panel", "Diagnosis"],
+  "Laptop": ["Screen Replacement", "Battery Replacement", "Keyboard Replacement", "Hinge Repair", "Motherboard Repair", "Software / OS Issue", "Diagnosis"],
+  "Tablet / iPad": ["Screen Replacement", "Battery Replacement", "Charging Port Repair", "Software Issue", "Back Panel", "Diagnosis"],
+  "Smart Watch": ["Screen Replacement", "Battery Replacement", "Band Replacement", "Software Issue", "Diagnosis"],
 };
 const timeSlots = ["9:00 AM - 11:00 AM", "11:00 AM - 1:00 PM", "1:00 PM - 3:00 PM", "3:00 PM - 5:00 PM", "5:00 PM - 7:00 PM"];
 
@@ -263,17 +262,14 @@ export default function BookingSection() {
                 />
               </div>
               <div>
-                <label className="text-[#EAF7FF]/70 text-sm mb-2 block">City *</label>
-                <Select value={form.city} onValueChange={(v) => updateField("city", v)}>
-                  <SelectTrigger className="bg-[#0A1A3F]/80 border-[#00C2FF]/20 text-white" data-testid="select-city">
-                    <SelectValue placeholder="Select city" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-[#0d2255] border-[#00C2FF]/30">
-                    {mumbaiAreas.map((a) => (
-                      <SelectItem key={a.name} value={a.name} className="text-white hover:bg-[#00C2FF]/10">{a.name} ({a.region})</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <label className="text-[#EAF7FF]/70 text-sm mb-2 block">City / Location *</label>
+                <Input
+                  value={form.city}
+                  onChange={(e) => updateField("city", e.target.value)}
+                  placeholder="e.g. Andheri West, Mumbai"
+                  className="bg-[#0A1A3F]/80 border-[#00C2FF]/20 text-white placeholder:text-[#EAF7FF]/30"
+                  data-testid="input-city"
+                />
               </div>
               <div className="flex gap-3">
                 <Button

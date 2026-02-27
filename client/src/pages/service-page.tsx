@@ -85,6 +85,15 @@ export default function ServicePage() {
             </h1>
             <p className="text-[#EAF7FF]/70 text-sm sm:text-lg max-w-3xl mb-4">{service.description}</p>
 
+            {service.slug === "diagnosis" && (
+              <div className="rounded-xl border border-[#00FFE0]/30 bg-[#00FFE0]/5 px-5 py-4 mb-4 max-w-3xl">
+                <p className="text-[#00FFE0] font-semibold text-sm sm:text-base">
+                  <CheckCircle2 className="w-5 h-5 inline mr-2" />
+                  If the customer repairs the device, there are NO diagnosis charges. Diagnosis charges apply only if the customer opts for diagnosis only without repair.
+                </p>
+              </div>
+            )}
+
             <div className="flex flex-col sm:flex-row gap-3">
               <a href={`https://wa.me/918169701980?text=Hi%2C%20I%20need%20${encodeURIComponent(service.name)}`} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] text-[#0A1A3F] font-bold shadow-[0_0_25px_rgba(0,194,255,0.3)] no-default-hover-elevate no-default-active-elevate" data-testid="button-service-book">

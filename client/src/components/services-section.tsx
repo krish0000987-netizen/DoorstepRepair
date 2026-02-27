@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Link } from "wouter";
+import svcMotherboardImg from "@assets/svc-motherboard.png";
+import svcBackglassImg from "@assets/svc-backglass.png";
+import svcBackpanelImg from "@assets/svc-backpanel.png";
+import svcDiagnosisImg from "@assets/svc-diagnosis.png";
 
 const services = [
   { image: "/images/svc-screen.jpg", name: "Screen Replacement", slug: "screen-replacement", desc: "Cracked or broken screen? We replace with original quality displays." },
@@ -9,6 +13,10 @@ const services = [
   { image: "/images/svc-software.jpg", name: "Software Problems", slug: "software-problems", desc: "Hang, slow, or virus? Complete software repair." },
   { image: "/images/svc-water.jpg", name: "Water Damage Treatment", slug: "water-damage", desc: "Phone fell in water? Emergency water damage repair." },
   { image: "/images/svc-camera.jpg", name: "Camera & Speaker Repair", slug: "camera-speaker-repair", desc: "Blurry camera or no sound? We fix it all." },
+  { image: svcMotherboardImg, name: "Motherboard Repairing", slug: "motherboard-repairing", desc: "Dead phone or restart issues? Expert motherboard level repair." },
+  { image: svcBackglassImg, name: "iPhone Back Glass", slug: "iphone-back-glass", desc: "Cracked back glass on your iPhone? We replace it with precision." },
+  { image: svcBackpanelImg, name: "Android Back Panel", slug: "android-back-panel", desc: "Broken back panel? Get a brand new replacement for your Android." },
+  { image: svcDiagnosisImg, name: "Diagnosis", slug: "diagnosis", desc: "Not sure what's wrong? Our experts will diagnose and find the issue." },
 ];
 
 export default function ServicesSection() {

@@ -38,6 +38,10 @@ export default function Footer() {
                 { label: "Software Problems", slug: "software-problems" },
                 { label: "Water Damage", slug: "water-damage" },
                 { label: "Camera Repair", slug: "camera-speaker-repair" },
+                { label: "Motherboard Repairing", slug: "motherboard-repairing" },
+                { label: "iPhone Back Glass", slug: "iphone-back-glass" },
+                { label: "Android Back Panel", slug: "android-back-panel" },
+                { label: "Diagnosis", slug: "diagnosis" },
               ].map((s) => (
                 <li key={s.slug}>
                   <Link href={`/services/${s.slug}`}>
@@ -101,12 +105,15 @@ export default function Footer() {
 
         <div className="border-t border-[#00C2FF]/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[#EAF7FF]/30 text-xs">&copy; {new Date().getFullYear()} {get("copyright", "Devices Doctor. All rights reserved.")}</p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-end">
             <Link href="/privacy-policy">
               <span className="text-[#EAF7FF]/30 text-xs hover:text-[#00C2FF] transition-colors cursor-pointer" data-testid="link-privacy-policy">Privacy Policy</span>
             </Link>
             <Link href="/terms-conditions">
               <span className="text-[#EAF7FF]/30 text-xs hover:text-[#00C2FF] transition-colors cursor-pointer" data-testid="link-terms-conditions">Terms & Conditions</span>
+            </Link>
+            <Link href="/copyright">
+              <span className="text-[#EAF7FF]/30 text-xs hover:text-[#00C2FF] transition-colors cursor-pointer" data-testid="link-copyright">Copyright</span>
             </Link>
             <p className="text-[#EAF7FF]/30 text-xs">Powered by Growth Nations</p>
           </div>

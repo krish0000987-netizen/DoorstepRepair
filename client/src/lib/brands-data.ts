@@ -1,3 +1,8 @@
+import svcMotherboardImg from "@assets/svc-motherboard.png";
+import svcBackglassImg from "@assets/svc-backglass.png";
+import svcBackpanelImg from "@assets/svc-backpanel.png";
+import svcDiagnosisImg from "@assets/svc-diagnosis.png";
+
 export interface Brand {
   name: string;
   slug: string;
@@ -382,6 +387,58 @@ export const serviceDetails = [
       { q: "Why is my camera blurry?", a: "Blurry cameras can be caused by a dirty lens, damaged lens glass, or a faulty camera module." },
       { q: "Can you fix low speaker volume?", a: "Yes, we clean or replace speaker units to restore full audio quality." },
       { q: "Do you repair front and back cameras?", a: "Yes, we repair both front-facing and rear camera modules for all devices." },
+    ],
+  },
+  {
+    slug: "motherboard-repairing",
+    name: "Motherboard Repairing",
+    icon: "Cpu",
+    heroImage: svcMotherboardImg,
+    description: "Expert motherboard-level repair for dead phones, restart loops, overheating, and no power issues. Our skilled technicians use micro-soldering techniques to fix complex motherboard faults.",
+    features: ["Micro-soldering repair", "Dead phone recovery", "Restart loop fix", "Overheating solution", "Component-level diagnosis"],
+    faq: [
+      { q: "Can a dead phone motherboard be repaired?", a: "Yes, many dead phone issues are caused by specific component failures on the motherboard that can be repaired with micro-soldering." },
+      { q: "How long does motherboard repair take?", a: "Motherboard repairs typically take 1-3 hours depending on the complexity of the issue." },
+      { q: "Is motherboard repair worth it?", a: "In most cases, motherboard repair is significantly cheaper than buying a new phone and can fully restore your device." },
+    ],
+  },
+  {
+    slug: "iphone-back-glass",
+    name: "iPhone Back Glass",
+    icon: "Smartphone",
+    heroImage: svcBackglassImg,
+    description: "Professional iPhone back glass replacement service. We carefully remove the broken back glass and install a brand new OEM quality back panel with precision.",
+    features: ["OEM quality glass", "Precision installation", "Wireless charging compatible", "Color matching", "30-minute service"],
+    faq: [
+      { q: "Can iPhone back glass be replaced?", a: "Yes, we replace back glass for all iPhone models from iPhone 8 onwards using professional techniques." },
+      { q: "Will wireless charging still work after replacement?", a: "Yes, we use wireless charging compatible back glass panels to ensure full functionality." },
+      { q: "How long does iPhone back glass replacement take?", a: "Back glass replacement is typically completed within 30-45 minutes at your doorstep." },
+    ],
+  },
+  {
+    slug: "android-back-panel",
+    name: "Android Back Panel",
+    icon: "Tablet",
+    heroImage: svcBackpanelImg,
+    description: "Replace your cracked or damaged Android back panel with a brand new OEM quality replacement. We cover Samsung, OnePlus, Xiaomi, Vivo, Oppo and all major brands.",
+    features: ["All Android brands", "OEM quality panels", "Color matching available", "Quick installation", "90-day warranty"],
+    faq: [
+      { q: "Which Android brands do you cover for back panel replacement?", a: "We cover Samsung, OnePlus, Xiaomi, Vivo, Oppo, Realme, and all other major Android brands." },
+      { q: "How long does Android back panel replacement take?", a: "Most back panel replacements are completed within 20-30 minutes." },
+      { q: "Do you have all color options available?", a: "We stock popular colors for most models. For rare colors, we can arrange them within 1-2 days." },
+    ],
+  },
+  {
+    slug: "diagnosis",
+    name: "Diagnosis",
+    icon: "Search",
+    heroImage: svcDiagnosisImg,
+    description: "Not sure what's wrong with your device? Our expert technicians will thoroughly diagnose your device and identify the exact issue. If you proceed with the repair, diagnosis is completely free!",
+    features: ["Complete device checkup", "Hardware testing", "Software analysis", "Free with repair", "Detailed report", "Expert recommendation"],
+    faq: [
+      { q: "Is there a charge for diagnosis?", a: "If you proceed with the repair after diagnosis, there is NO diagnosis charge. Diagnosis charges apply only if you choose not to get the device repaired." },
+      { q: "How long does diagnosis take?", a: "A thorough device diagnosis typically takes 15-30 minutes depending on the issue." },
+      { q: "What does the diagnosis include?", a: "Our diagnosis includes complete hardware testing, software analysis, battery health check, and a detailed report of all issues found." },
     ],
   },
 ];

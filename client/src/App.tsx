@@ -28,6 +28,7 @@ import AdminBookings from "@/pages/admin/admin-bookings";
 import AdminImages from "@/pages/admin/admin-images";
 import AdminPrivacy from "@/pages/admin/admin-privacy";
 import AdminTerms from "@/pages/admin/admin-terms";
+import CopyrightPage from "@/pages/copyright-page";
 
 function Router() {
   return (
@@ -40,6 +41,7 @@ function Router() {
       <Route path="/contact" component={ContactPage} />
       <Route path="/privacy-policy" component={PrivacyPolicyPage} />
       <Route path="/terms-conditions" component={TermsConditionsPage} />
+      <Route path="/copyright" component={CopyrightPage} />
       <Route path="/brands/:slug" component={BrandPage} />
       <Route path="/services/:slug" component={ServicePage} />
       <Route path="/admin/login" component={AdminLogin} />

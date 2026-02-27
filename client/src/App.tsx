@@ -29,9 +29,12 @@ import AdminImages from "@/pages/admin/admin-images";
 import AdminPrivacy from "@/pages/admin/admin-privacy";
 import AdminTerms from "@/pages/admin/admin-terms";
 import CopyrightPage from "@/pages/copyright-page";
+import ScrollToTop from "@/components/scroll-to-top";
 
 function Router() {
   return (
+    <>
+    <ScrollToTop />
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={ServicesListingPage} />
@@ -59,6 +62,7 @@ function Router() {
       <Route path="/admin">{() => <AdminLayout><AdminDashboard /></AdminLayout>}</Route>
       <Route component={NotFound} />
     </Switch>
+    </>
   );
 }
 

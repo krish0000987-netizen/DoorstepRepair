@@ -3,6 +3,10 @@ import { SiInstagram, SiFacebook } from "react-icons/si";
 import { Link } from "wouter";
 import { useContent } from "@/hooks/use-content";
 
+const INSTAGRAM_URL = "https://www.instagram.com/devicesdoctor1993?igsh=aW9tY3hvMXRsdzF2";
+const FACEBOOK_URL = "https://www.facebook.com/share/17wypKXAtc/";
+const EMAIL = "devicesdoctor1993@gmail.com";
+
 export default function Footer() {
   const { get } = useContent("footer");
   const { get: getCta } = useContent("cta");
@@ -25,17 +29,17 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-[#EAF7FF]/50 text-sm leading-relaxed mb-5">
-              {get("company_description", "Fast & Trusted 30 Minutes Doorstep Repair Service for all your devices. Genuine parts with 3 to 6 months warranty.")}
+              Fast & Trusted 30 Minutes Doorstep Repair Service for all your devices. Genuine parts with 3 to 6 months warranty.
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
-              <a href={get("instagram", "https://www.instagram.com/devicesdoctor1993?igsh=aW9tY3hvMXRsdzF2")} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-instagram">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-instagram">
                 <SiInstagram className="w-5 h-5" />
               </a>
-              <a href={get("facebook", "https://www.facebook.com/share/17wypKXAtc/")} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-facebook">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-facebook">
                 <SiFacebook className="w-5 h-5" />
               </a>
-              <a href={`mailto:${get("email", "devicesdoctor1993@gmail.com")}`} className="w-10 h-10 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-email">
+              <a href={`mailto:${EMAIL}`} className="w-10 h-10 rounded-lg bg-[#00C2FF]/10 border border-[#00C2FF]/20 flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF]/20 transition-colors" data-testid="link-email">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -96,8 +100,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-[#00C2FF] mt-0.5 shrink-0" />
-                <a href={`mailto:${get("email", "devicesdoctor1993@gmail.com")}`} className="text-[#EAF7FF]/70 text-sm hover:text-[#00C2FF] transition-colors break-all">
-                  {get("email", "devicesdoctor1993@gmail.com")}
+                <a href={`mailto:${EMAIL}`} className="text-[#EAF7FF]/70 text-sm hover:text-[#00C2FF] transition-colors break-all">
+                  {EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -109,12 +113,12 @@ export default function Footer() {
             <div className="mt-5 p-3 rounded-lg bg-[#00C2FF]/5 border border-[#00C2FF]/10">
               <p className="text-[#00C2FF] text-xs font-semibold mb-1">Follow Us</p>
               <div className="flex items-center gap-2">
-                <a href={get("instagram", "https://www.instagram.com/devicesdoctor1993?igsh=aW9tY3hvMXRsdzF2")} target="_blank" rel="noopener noreferrer" className="text-[#EAF7FF]/50 text-xs hover:text-[#00C2FF] transition-colors flex items-center gap-1.5" data-testid="link-instagram-contact">
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-[#EAF7FF]/50 text-xs hover:text-[#00C2FF] transition-colors flex items-center gap-1.5" data-testid="link-instagram-contact">
                   <SiInstagram className="w-3.5 h-3.5" />
                   Instagram
                 </a>
                 <span className="text-[#EAF7FF]/20">|</span>
-                <a href={get("facebook", "https://www.facebook.com/share/17wypKXAtc/")} target="_blank" rel="noopener noreferrer" className="text-[#EAF7FF]/50 text-xs hover:text-[#00C2FF] transition-colors flex items-center gap-1.5" data-testid="link-facebook-contact">
+                <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-[#EAF7FF]/50 text-xs hover:text-[#00C2FF] transition-colors flex items-center gap-1.5" data-testid="link-facebook-contact">
                   <SiFacebook className="w-3.5 h-3.5" />
                   Facebook
                 </a>

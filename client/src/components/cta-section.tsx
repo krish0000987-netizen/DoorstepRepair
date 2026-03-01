@@ -68,15 +68,15 @@ export default function CTASection() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
             <div className="flex items-center gap-2 text-[#EAF7FF]/50 text-sm">
               <div className="w-2 h-2 rounded-full bg-[#00FFE0]" />
-              {get("feature_1", "Certified Technicians")}
+              Certified Technicians
             </div>
             <div className="flex items-center gap-2 text-[#EAF7FF]/50 text-sm">
               <div className="w-2 h-2 rounded-full bg-[#00FFE0]" />
-              {get("feature_2", "Genuine Parts")}
+              Genuine Parts
             </div>
             <div className="flex items-center gap-2 text-[#EAF7FF]/50 text-sm">
               <div className="w-2 h-2 rounded-full bg-[#00FFE0]" />
-              {get("feature_3", "3 to 6 Months Warranty")}
+              3 to 6 Months Warranty
             </div>
           </div>
         </motion.div>

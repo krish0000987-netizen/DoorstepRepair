@@ -38,12 +38,16 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-2 sm:gap-4 h-14 sm:h-16 md:h-20">
           <Link href="/">
-            <span className="flex items-center gap-1.5 sm:gap-2 shrink-0 cursor-pointer" data-testid="link-logo">
+            <span className="flex items-center gap-2 sm:gap-3 shrink-0 cursor-pointer" data-testid="link-logo">
               <img
                 src={logoPath}
                 alt="Devices Doctor"
                 className="h-10 sm:h-12 md:h-14 w-auto object-contain mix-blend-lighten"
               />
+              <div className="flex flex-col">
+                <span className="text-sm sm:text-lg font-bold text-white tracking-wide leading-tight">DEVICES</span>
+                <span className="text-[10px] sm:text-xs font-semibold text-[#00C2FF] tracking-[0.2em] leading-tight">DOCTOR</span>
+              </div>
             </span>
           </Link>
 

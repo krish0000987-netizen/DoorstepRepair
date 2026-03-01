@@ -135,7 +135,6 @@ export default function Footer() {
             <Link href="/copyright">
               <span className="text-[#EAF7FF]/30 text-xs hover:text-[#00C2FF] transition-colors cursor-pointer" data-testid="link-copyright">Copyright</span>
             </Link>
-            <p className="text-[#EAF7FF]/30 text-xs">Powered by Growth Nations</p>
           </div>
         </div>
       </div>

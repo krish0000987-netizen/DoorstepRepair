@@ -183,5 +183,23 @@ export async function seedDatabase() {
     console.log("Default site content seeded!");
   }
 
+  const dataMigrations: { section: string; key: string; oldValues: string[]; newValue: string }[] = [
+    { section: "cta", key: "feature_3", oldValues: ["90-Day Warranty", "6-Month Warranty"], newValue: "3 to 6 Months Warranty" },
+    { section: "why_choose", key: "reason_2_description", oldValues: ["We use only genuine quality parts and provide 90-day warranty on all repairs.", "We use only genuine quality parts and provide 6-month warranty on all repairs."], newValue: "We use only genuine quality parts and provide 3 to 6 months warranty on all repairs." },
+    { section: "footer", key: "company_description", oldValues: ["Mumbai's trusted doorstep device repair service. We fix mobiles, laptops, tablets & smart watches at your location."], newValue: "Fast & Trusted 30 Minutes Doorstep Repair Service for all your devices. Genuine parts with 3 to 6 months warranty." },
+    { section: "footer", key: "email", oldValues: ["info@devicesdoctor.com", ""], newValue: "devicesdoctor1993@gmail.com" },
+    { section: "footer", key: "instagram", oldValues: ["#", ""], newValue: "https://www.instagram.com/devicesdoctor1993?igsh=aW9tY3hvMXRsdzF2" },
+    { section: "footer", key: "facebook", oldValues: ["#", ""], newValue: "https://www.facebook.com/share/17wypKXAtc/" },
+  ];
+
+  const allContent = await storage.getAllContent();
+  for (const migration of dataMigrations) {
+    const entry = allContent.find((c: any) => c.section === migration.section && c.key === migration.key);
+    if (entry && migration.oldValues.includes(entry.value)) {
+      await storage.upsertContent(migration.section, migration.key, migration.newValue, "text");
+      console.log(`Migrated ${migration.section}.${migration.key} to "${migration.newValue}"`);
+    }
+  }
+
   console.log("Database seeded successfully!");
 }

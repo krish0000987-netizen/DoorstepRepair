@@ -22,7 +22,7 @@ export default function Footer() {
               <img
                 src={logoPath}
                 alt="Devices Doctor"
-                className="h-16 sm:h-14 w-auto object-contain"
+                className="h-16 sm:h-14 w-auto object-contain mix-blend-lighten"
               />
             </div>
             <p className="text-[#EAF7FF]/50 text-sm leading-relaxed mb-5">

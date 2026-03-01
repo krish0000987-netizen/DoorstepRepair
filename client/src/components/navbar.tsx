@@ -42,7 +42,7 @@ export default function Navbar() {
               <img
                 src={logoPath}
                 alt="Devices Doctor"
-                className="h-10 sm:h-12 md:h-14 w-auto object-contain"
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain mix-blend-lighten"
               />
             </span>
           </Link>

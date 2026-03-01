@@ -2,6 +2,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { SiInstagram, SiFacebook } from "react-icons/si";
 import { Link } from "wouter";
 import { useContent } from "@/hooks/use-content";
+import logoPath from "@assets/WhatsApp_Image_2026-03-01_at_7.27.10_PM_1772373920526.jpeg";
 
 const INSTAGRAM_URL = "https://www.instagram.com/devicesdoctor1993?igsh=aW9tY3hvMXRsdzF2";
 const FACEBOOK_URL = "https://www.facebook.com/share/17wypKXAtc/";
@@ -17,16 +18,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-8 mb-10 sm:mb-12">
 
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="mb-4">
               <img
-                src="/images/logo-devices-doctor.png"
+                src={logoPath}
                 alt="Devices Doctor"
-                className="w-14 h-14 sm:w-12 sm:h-12 rounded-full object-contain"
+                className="h-16 sm:h-14 w-auto object-contain"
               />
-              <div>
-                <span className="text-white font-bold text-xl sm:text-lg block leading-tight">{get("company_name", "DEVICES DOCTOR")}</span>
-                <span className="text-[#00C2FF] text-xs tracking-widest">Your Device Health Experts</span>
-              </div>
             </div>
             <p className="text-[#EAF7FF]/50 text-sm leading-relaxed mb-5">
               Fast & Trusted 30 Minutes Doorstep Repair Service for all your devices. Genuine parts with 3 to 6 months warranty.

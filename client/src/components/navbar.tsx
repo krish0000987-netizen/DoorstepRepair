@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import { useContent } from "@/hooks/use-content";
+import logoPath from "@assets/WhatsApp_Image_2026-03-01_at_7.27.10_PM_1772373920526.jpeg";
 
 const mainLinks = [
   { label: "Home", href: "/" },
@@ -39,18 +40,10 @@ export default function Navbar() {
           <Link href="/">
             <span className="flex items-center gap-1.5 sm:gap-2 shrink-0 cursor-pointer" data-testid="link-logo">
               <img
-                src="/images/logo-devices-doctor.png"
+                src={logoPath}
                 alt="Devices Doctor"
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-contain"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                }}
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain"
               />
-              <div className="flex flex-col">
-                <span className="text-sm sm:text-lg font-bold text-white tracking-wide leading-tight">DEVICES</span>
-                <span className="text-[10px] sm:text-xs font-semibold text-[#00C2FF] tracking-[0.2em] leading-tight">DOCTOR</span>
-              </div>
             </span>
           </Link>
 

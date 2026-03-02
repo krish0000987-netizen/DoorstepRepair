@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { SiInstagram, SiFacebook } from "react-icons/si";
 import { Link } from "wouter";
 import { useContent } from "@/hooks/use-content";
-import logoPath from "@assets/WhatsApp_Image_2026-03-01_at_7.27.10_PM_1772373920526.jpeg";
+import logoPath from "@assets/WhatsApp_Image_2026-03-02_at_2.24.37_PM_1772459749185.jpeg";
 
 const INSTAGRAM_URL = "https://www.instagram.com/devicesdoctor1993?igsh=aW9tY3hvMXRsdzF2";
 const FACEBOOK_URL = "https://www.facebook.com/share/17wypKXAtc/";

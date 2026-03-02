@@ -8,6 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { apiRequest } from "@/lib/queryClient";
 import AdminLogin from "./admin-login";
+import logoPath from "@assets/WhatsApp_Image_2026-03-02_at_2.24.37_PM_1772459749185.jpeg";
 
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -57,9 +58,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="flex items-center justify-between p-4 border-b border-[#00C2FF]/15">
           <Link href="/admin">
             <span className="flex items-center gap-2 cursor-pointer">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00C2FF] to-[#00FFE0] flex items-center justify-center">
-                <Settings className="w-4 h-4 text-[#0A1A3F]" />
-              </div>
+              <img src={logoPath} alt="Devices Doctor" className="h-8 w-auto object-contain mix-blend-lighten" />
               <div>
                 <div className="text-white text-sm font-bold">Admin Panel</div>
                 <div className="text-[#00C2FF] text-[10px]">Devices Doctor</div>

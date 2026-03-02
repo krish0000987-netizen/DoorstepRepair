@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import { useContent } from "@/hooks/use-content";
-import logoPath from "@assets/WhatsApp_Image_2026-03-01_at_7.27.10_PM_1772373920526.jpeg";
+import logoPath from "@assets/WhatsApp_Image_2026-03-02_at_2.24.37_PM_1772459749185.jpeg";
 
 const mainLinks = [
   { label: "Home", href: "/" },

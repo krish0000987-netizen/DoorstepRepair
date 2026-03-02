@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Lock, User } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import logoPath from "@assets/WhatsApp_Image_2026-03-02_at_2.24.37_PM_1772459749185.jpeg";
 
 export default function AdminLogin() {
   const [, setLocation] = useLocation();
@@ -30,6 +31,7 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-[#0A1A3F] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
+          <img src={logoPath} alt="Devices Doctor" className="h-16 w-auto object-contain mix-blend-lighten mx-auto mb-4" />
           <h1 className="text-3xl font-bold text-white mb-2">Admin Panel</h1>
           <p className="text-[#EAF7FF]/60">Devices Doctor Content Management</p>
         </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Smartphone, Wrench, User, Phone as PhoneIcon, Mail, CheckCircle2 } from "lucide-react";
+import { Calendar, Clock, MapPin, Smartphone, Wrench, User, Phone as PhoneIcon, Mail, CheckCircle2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -43,7 +43,9 @@ export default function BookingSection() {
     estimatedPrice: 0,
   });
 
-  const sendWhatsAppMessage = (data: typeof form) => {
+  const [whatsappUrl, setWhatsappUrl] = useState("");
+
+  const buildWhatsAppUrl = (data: typeof form) => {
     const message = `*New Repair Booking - Devices Doctor*\n\n` +
       `*Device:* ${data.deviceType}\n` +
       `*Brand:* ${data.brand}\n` +
@@ -56,8 +58,7 @@ export default function BookingSection() {
       `*City:* ${data.city}\n\n` +
       `*Scheduled:* ${data.scheduledDate} | ${data.scheduledTime}`;
 
-    const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/918169701980?text=${encoded}`, "_blank");
+    return `https://wa.me/918169701980?text=${encodeURIComponent(message)}`;
   };
 
   const bookingMutation = useMutation({
@@ -66,9 +67,9 @@ export default function BookingSection() {
       return res.json();
     },
     onSuccess: (_result, variables) => {
+      setWhatsappUrl(buildWhatsAppUrl(variables));
       setSubmitted(true);
       queryClient.invalidateQueries({ queryKey: ["/api/bookings"] });
-      sendWhatsAppMessage(variables);
     },
     onError: () => {
       toast({ title: "Booking failed", description: "Please try again or call us directly.", variant: "destructive" });
@@ -106,10 +107,22 @@ export default function BookingSection() {
           <h2 className="text-3xl font-bold text-white mb-3">Booking Confirmed!</h2>
           <p className="text-[#EAF7FF]/70 mb-2">Thank you, {form.customerName}!</p>
           <p className="text-[#EAF7FF]/60 text-sm mb-6">Our technician will arrive at your doorstep on {form.scheduledDate} during {form.scheduledTime}.</p>
-          <div className="mt-8">
+          <p className="text-[#EAF7FF]/50 text-xs mb-4">Tap below to send your booking details on WhatsApp for quick confirmation.</p>
+          <div className="flex flex-col gap-3 mt-6">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-base transition-colors no-default-hover-elevate no-default-active-elevate"
+              data-testid="button-send-whatsapp"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Send Booking on WhatsApp
+            </a>
             <Button
-              onClick={() => { setSubmitted(false); setStep(1); setForm({ deviceType: "", brand: "", model: "", problem: "", customerName: "", phone: "", email: "", address: "", city: "", scheduledDate: "", scheduledTime: "", estimatedPrice: 0 }); }}
-              className="bg-gradient-to-r from-[#00C2FF] to-[#00FFE0] text-[#0A1A3F] font-semibold no-default-hover-elevate no-default-active-elevate"
+              onClick={() => { setSubmitted(false); setStep(1); setWhatsappUrl(""); setForm({ deviceType: "", brand: "", model: "", problem: "", customerName: "", phone: "", email: "", address: "", city: "", scheduledDate: "", scheduledTime: "", estimatedPrice: 0 }); }}
+              variant="outline"
+              className="border-[#00C2FF]/30 text-[#00C2FF] bg-transparent no-default-hover-elevate no-default-active-elevate"
               data-testid="button-book-another"
             >
               Book Another Repair

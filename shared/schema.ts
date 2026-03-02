@@ -98,6 +98,17 @@ export const insertSiteContentSchema = createInsertSchema(siteContent).omit({ id
 export type InsertSiteContent = z.infer<typeof insertSiteContentSchema>;
 export type SiteContent = typeof siteContent.$inferSelect;
 
+export const brandModels = pgTable("brand_models", {
+  id: serial("id").primaryKey(),
+  brandSlug: varchar("brand_slug", { length: 100 }).notNull(),
+  modelName: text("model_name").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertBrandModelSchema = createInsertSchema(brandModels).omit({ id: true, createdAt: true });
+export type InsertBrandModel = z.infer<typeof insertBrandModelSchema>;
+export type BrandModel = typeof brandModels.$inferSelect;
+
 export const bookingFormSchema = z.object({
   customerName: z.string().min(2, "Name is required"),
   phone: z.string().min(10, "Valid phone number required"),

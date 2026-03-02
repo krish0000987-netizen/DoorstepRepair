@@ -9,6 +9,7 @@ import {
   cities, type City, type InsertCity,
   adminUsers, type AdminUser, type InsertAdminUser,
   siteContent, type SiteContent, type InsertSiteContent,
+  brandModels, type BrandModel, type InsertBrandModel,
 } from "@shared/schema";
 
 const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
@@ -47,6 +48,11 @@ export interface IStorage {
   getContentValue(section: string, key: string): Promise<string | undefined>;
   upsertContent(section: string, key: string, value: string, contentType?: string): Promise<SiteContent>;
   deleteContent(id: number): Promise<boolean>;
+
+  getBrandModels(brandSlug: string): Promise<BrandModel[]>;
+  getAllBrandModels(): Promise<BrandModel[]>;
+  createBrandModel(model: InsertBrandModel): Promise<BrandModel>;
+  deleteBrandModel(id: number): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -184,6 +190,24 @@ export class DatabaseStorage implements IStorage {
 
   async deleteContent(id: number): Promise<boolean> {
     await db.delete(siteContent).where(eq(siteContent.id, id));
+    return true;
+  }
+
+  async getBrandModels(brandSlug: string): Promise<BrandModel[]> {
+    return db.select().from(brandModels).where(eq(brandModels.brandSlug, brandSlug));
+  }
+
+  async getAllBrandModels(): Promise<BrandModel[]> {
+    return db.select().from(brandModels);
+  }
+
+  async createBrandModel(model: InsertBrandModel): Promise<BrandModel> {
+    const [created] = await db.insert(brandModels).values(model).returning();
+    return created;
+  }
+
+  async deleteBrandModel(id: number): Promise<boolean> {
+    await db.delete(brandModels).where(eq(brandModels.id, id));
     return true;
   }
 }

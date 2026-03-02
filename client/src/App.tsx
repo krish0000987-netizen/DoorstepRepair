@@ -28,6 +28,7 @@ import AdminBookings from "@/pages/admin/admin-bookings";
 import AdminImages from "@/pages/admin/admin-images";
 import AdminPrivacy from "@/pages/admin/admin-privacy";
 import AdminTerms from "@/pages/admin/admin-terms";
+import AdminBrandModels from "@/pages/admin/admin-brand-models";
 import CopyrightPage from "@/pages/copyright-page";
 import ScrollToTop from "@/components/scroll-to-top";
 
@@ -59,6 +60,7 @@ function Router() {
       <Route path="/admin/images">{() => <AdminLayout><AdminImages /></AdminLayout>}</Route>
       <Route path="/admin/privacy">{() => <AdminLayout><AdminPrivacy /></AdminLayout>}</Route>
       <Route path="/admin/terms">{() => <AdminLayout><AdminTerms /></AdminLayout>}</Route>
+      <Route path="/admin/brand-models">{() => <AdminLayout><AdminBrandModels /></AdminLayout>}</Route>
       <Route path="/admin">{() => <AdminLayout><AdminDashboard /></AdminLayout>}</Route>
       <Route component={NotFound} />
     </Switch>

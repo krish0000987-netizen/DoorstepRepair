@@ -1,12 +1,22 @@
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Link } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 import { allBrands } from "@/lib/brands-data";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/floating-whatsapp";
+import type { BrandModel } from "@shared/schema";
 
 export default function BrandsListingPage() {
+  const { data: allCustomModels = [] } = useQuery<BrandModel[]>({
+    queryKey: ["/api/brand-models"],
+  });
+
+  const customModelCounts = allCustomModels.reduce<Record<string, number>>((acc, m) => {
+    acc[m.brandSlug] = (acc[m.brandSlug] || 0) + 1;
+    return acc;
+  }, {});
   return (
     <div className="min-h-screen bg-[#0A1A3F]">
       <Navbar />
@@ -56,7 +66,7 @@ export default function BrandsListingPage() {
                       />
                     </div>
                     <h3 className="text-white font-bold text-base mb-1">{brand.name}</h3>
-                    <p className="text-[#EAF7FF]/40 text-xs mb-2">{brand.popularModels.length}+ models</p>
+                    <p className="text-[#EAF7FF]/40 text-xs mb-2">{brand.popularModels.length + (customModelCounts[brand.slug] || 0)}+ models</p>
                     <div className="flex items-center justify-center gap-1 text-[#00C2FF]/60 group-hover:text-[#00C2FF] transition-colors">
                       <span className="text-xs font-medium">View Details</span>
                       <ChevronRight className="w-3 h-3" />

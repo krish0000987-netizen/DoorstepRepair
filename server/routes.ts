@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertBookingSchema, insertReviewSchema, adminLoginSchema } from "@shared/schema";
+import { insertBookingSchema, insertReviewSchema, adminLoginSchema, insertBrandModelSchema } from "@shared/schema";
 import bcrypt from "bcryptjs";
 import session from "express-session";
 import multer from "multer";
@@ -243,6 +243,28 @@ export async function registerRoutes(
     const booking = await storage.updateBookingStatus(Number(req.params.id), status);
     if (!booking) return res.status(404).json({ message: "Booking not found" });
     res.json(booking);
+  });
+
+  app.get("/api/brand-models", async (_req, res) => {
+    const models = await storage.getAllBrandModels();
+    res.json(models);
+  });
+
+  app.get("/api/brand-models/:brandSlug", async (req, res) => {
+    const models = await storage.getBrandModels(req.params.brandSlug);
+    res.json(models);
+  });
+
+  app.post("/api/admin/brand-models", requireAdmin, async (req, res) => {
+    const parsed = insertBrandModelSchema.safeParse(req.body);
+    if (!parsed.success) return res.status(400).json({ message: "Invalid data", errors: parsed.error.errors });
+    const model = await storage.createBrandModel(parsed.data);
+    res.status(201).json(model);
+  });
+
+  app.delete("/api/admin/brand-models/:id", requireAdmin, async (req, res) => {
+    await storage.deleteBrandModel(Number(req.params.id));
+    res.json({ message: "Deleted" });
   });
 
   return httpServer;

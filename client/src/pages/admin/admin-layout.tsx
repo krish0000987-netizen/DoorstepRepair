@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import {
   LayoutDashboard, FileText, Image, Star, Calendar, Phone, Info, Mail,
-  Settings, LogOut, Menu, X, ChevronRight, Wrench, Shield, ScrollText
+  Settings, LogOut, Menu, X, ChevronRight, Wrench, Shield, ScrollText, Smartphone
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { apiRequest } from "@/lib/queryClient";
@@ -22,6 +22,7 @@ const navItems = [
   { label: "Footer", href: "/admin/footer", icon: Settings },
   { label: "Privacy Policy", href: "/admin/privacy", icon: Shield },
   { label: "Terms & Conditions", href: "/admin/terms", icon: ScrollText },
+  { label: "Brand Models", href: "/admin/brand-models", icon: Smartphone },
   { label: "Images", href: "/admin/images", icon: Image },
 ];
 

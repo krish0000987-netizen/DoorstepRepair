@@ -1,4 +1,5 @@
 import { useParams, Link } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { getBrandBySlug, allBrands } from "@/lib/brands-data";
 import { ArrowLeft, CheckCircle2, Shield, Clock, Wrench, MapPin, Phone, MessageCircle, ChevronRight, Star } from "lucide-react";
@@ -6,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/floating-whatsapp";
+import type { BrandModel } from "@shared/schema";
 
 const problemImages: Record<string, string> = {
   "Screen Replacement": "/images/svc-screen.jpg",
@@ -20,6 +22,18 @@ const problemImages: Record<string, string> = {
 export default function BrandPage() {
   const { slug } = useParams<{ slug: string }>();
   const brand = getBrandBySlug(slug || "");
+
+  const { data: customModels = [] } = useQuery<BrandModel[]>({
+    queryKey: ["/api/brand-models", slug],
+    enabled: !!slug,
+  });
+
+  const allModels = [
+    ...(brand?.popularModels || []),
+    ...customModels.map((m) => m.modelName).filter(
+      (name) => !brand?.popularModels.includes(name)
+    ),
+  ];
 
   if (!brand) {
     return (
@@ -101,7 +115,7 @@ export default function BrandPage() {
           </motion.div>
 
           <div className="flex flex-wrap gap-2 sm:gap-3">
-            {brand.popularModels.map((model, i) => (
+            {allModels.map((model, i) => (
               <motion.div
                 key={model}
                 initial={{ opacity: 0, scale: 0.9 }}

@@ -47,6 +47,7 @@ Preferred communication style: Simple, everyday language.
   - `bookings` - customer repair bookings (customer info, device details, scheduling, status)
   - `reviews` - customer testimonials (name, rating, comment, service, city)
   - `cities` - cities where service is available (name, state, active flag)
+  - `brand_models` - admin-managed device models per brand (brandSlug, modelName), displayed alongside hardcoded defaults on brand pages
 - **Migrations**: Drizzle Kit with `db:push` command for schema synchronization
 - **Seeding**: `server/seed.ts` populates initial cities, services, and sample reviews
 
@@ -66,7 +67,7 @@ client/           # Frontend React application
   src/
     components/   # Page sections and UI components
     components/ui/  # shadcn/ui component library
-    pages/        # Route pages (home, services-listing, brands-listing, areas, about, contact, brand-page, service-page, privacy-policy, terms-conditions, not-found)
+    pages/        # Route pages (home, services-listing, brands-listing, areas, about, contact, brand-page, service-page, privacy-policy, terms-conditions, not-found, admin/admin-brand-models)
     hooks/        # Custom React hooks
     lib/          # Utilities and query client config
 server/           # Backend Express application

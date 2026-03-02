@@ -43,14 +43,32 @@ export default function BookingSection() {
     estimatedPrice: 0,
   });
 
+  const sendWhatsAppMessage = (data: typeof form) => {
+    const message = `*New Repair Booking - Devices Doctor*\n\n` +
+      `*Device:* ${data.deviceType}\n` +
+      `*Brand:* ${data.brand}\n` +
+      (data.model ? `*Model:* ${data.model}\n` : "") +
+      `*Problem:* ${data.problem}\n\n` +
+      `*Customer:* ${data.customerName}\n` +
+      `*Phone:* ${data.phone}\n` +
+      (data.email ? `*Email:* ${data.email}\n` : "") +
+      `*Address:* ${data.address}\n` +
+      `*City:* ${data.city}\n\n` +
+      `*Scheduled:* ${data.scheduledDate} | ${data.scheduledTime}`;
+
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/918169701980?text=${encoded}`, "_blank");
+  };
+
   const bookingMutation = useMutation({
     mutationFn: async (data: typeof form) => {
       const res = await apiRequest("POST", "/api/bookings", data);
       return res.json();
     },
-    onSuccess: () => {
+    onSuccess: (_result, variables) => {
       setSubmitted(true);
       queryClient.invalidateQueries({ queryKey: ["/api/bookings"] });
+      sendWhatsAppMessage(variables);
     },
     onError: () => {
       toast({ title: "Booking failed", description: "Please try again or call us directly.", variant: "destructive" });

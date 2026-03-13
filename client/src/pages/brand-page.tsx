@@ -74,7 +74,7 @@ export default function BrandPage() {
           >
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-6">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2.5 sm:p-3 shrink-0">
-                <img src={brand.logo} alt={`${brand.name} logo`} className="w-full h-full object-contain" />
+                <img src={brand.logo} alt={`${brand.name} logo`} className="w-full h-full object-contain" style={brand.slug === "samsung" ? { filter: "invert(1) brightness(2)" } : undefined} />
               </div>
               <div className="self-start inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#00C2FF]/30 bg-[#00C2FF]/10">
                 <span className="w-2 h-2 rounded-full bg-[#00FFE0] animate-pulse" />

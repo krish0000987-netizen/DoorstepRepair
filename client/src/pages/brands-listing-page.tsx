@@ -58,6 +58,7 @@ export default function BrandsListingPage() {
                         src={brand.logo}
                         alt={`${brand.name} logo`}
                         className="w-full h-full object-contain"
+                        style={brand.slug === "samsung" ? { filter: "invert(1) brightness(2)" } : undefined}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
